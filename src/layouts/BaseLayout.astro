@@ -98,28 +98,8 @@ const currentPath = Astro.url.pathname;
       btn?.addEventListener('click', () => menu?.classList.toggle('hidden'));
 
       const nav = document.getElementById('site-nav') as HTMLElement;
-      const SOLID_BG = '#F5EDD6';
-      const SOLID_BORDER = 'rgba(26,58,92,0.1)';
-      const isHome = window.location.pathname === '/';
-
-      function setSolid() {
-        nav.style.backgroundColor = SOLID_BG;
-        nav.style.borderColor = SOLID_BORDER;
-      }
-      function setTransparent() {
-        nav.style.backgroundColor = 'transparent';
-        nav.style.borderColor = 'transparent';
-      }
-
-      if (!isHome) {
-        // Always solid on inner pages
-        setSolid();
-      } else {
-        // On homepage: transparent at top, solid once scrolled past hero
-        const update = () => window.scrollY > 60 ? setSolid() : setTransparent();
-        update();
-        window.addEventListener('scroll', update, { passive: true });
-      }
+      nav.style.backgroundColor = '#F5EDD6';
+      nav.style.borderColor = 'rgba(26,58,92,0.1)';
     </script>
   </body>
 </html>

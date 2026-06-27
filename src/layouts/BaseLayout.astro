@@ -40,7 +40,9 @@ const currentPath = Astro.url.pathname;
   <body class="bg-parchment text-navy font-sans">
 
     <!-- Navigation -->
-    <nav class={`fixed top-0 left-0 right-0 z-50 bg-parchment/95 backdrop-blur-sm border-b border-navy/10`}>
+    <nav id="site-nav" class="fixed top-0 left-0 right-0 z-50 border-b transition-all duration-300"
+      style="background-color: transparent; border-color: transparent;"
+    >
       <div class="max-w-7xl mx-auto px-6 md:px-10">
         <div class="flex items-center justify-between h-12">
           <!-- Logo -->
@@ -94,6 +96,30 @@ const currentPath = Astro.url.pathname;
       const btn = document.getElementById('mobile-menu-btn');
       const menu = document.getElementById('mobile-menu');
       btn?.addEventListener('click', () => menu?.classList.toggle('hidden'));
+
+      const nav = document.getElementById('site-nav') as HTMLElement;
+      const SOLID_BG = '#F5EDD6';
+      const SOLID_BORDER = 'rgba(26,58,92,0.1)';
+      const isHome = window.location.pathname === '/';
+
+      function setSolid() {
+        nav.style.backgroundColor = SOLID_BG;
+        nav.style.borderColor = SOLID_BORDER;
+      }
+      function setTransparent() {
+        nav.style.backgroundColor = 'transparent';
+        nav.style.borderColor = 'transparent';
+      }
+
+      if (!isHome) {
+        // Always solid on inner pages
+        setSolid();
+      } else {
+        // On homepage: transparent at top, solid once scrolled past hero
+        const update = () => window.scrollY > 60 ? setSolid() : setTransparent();
+        update();
+        window.addEventListener('scroll', update, { passive: true });
+      }
     </script>
   </body>
 </html>

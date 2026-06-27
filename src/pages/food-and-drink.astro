@@ -1,0 +1,39 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import InfoPage from '../components/InfoPage.astro';
+---
+
+<BaseLayout title="Food & Drink — Ben & Caitlin · Bermuda 2027" description="Where to eat and drink in Bermuda during Ben & Caitlin's wedding week.">
+  <InfoPage
+    heading="Food & Drink"
+    subheading="Eat & Drink in Bermuda"
+    intro="Bermuda has a surprisingly vibrant food scene — from fresh seafood shacks to elegant fine dining. Here are some of our favourites."
+    linkCards={[
+      { title: 'Wahoo\'s Bistro', description: 'A legendary Bermudian seafood spot. Try the fish chowder — it\'s the island\'s unofficial national dish. Lively and great value.', },
+      { title: 'The Reef Restaurant at The Reefs', description: 'Our wedding venue\'s restaurant. Spectacular clifftop setting with excellent modern Bermudian cuisine. Worth a dinner reservation.' },
+      { title: 'Lido Restaurant, Elbow Beach', description: 'Beachfront dining at its best. Great for a leisurely lunch after the beach party. Fresh fish, cocktails, and ocean views.' },
+      { title: 'Swizzle Inn', description: 'Home of the famous Bermuda Rum Swizzle — the island\'s signature cocktail. A rite of passage. The Bailey\'s Bay location is the original.' },
+      { title: 'Art Mel\'s Spicy Dicy', description: 'A legendary local lunch spot in Hamilton. Cash only, tiny, and absolutely delicious. The fish sandwich is unmissable.' },
+      { title: 'M.R. Onions', description: 'A classic Hamilton restaurant with a lively atmosphere. Great for a group dinner. Known for good cocktails and hearty portions.' },
+    ]}
+  >
+    <div class="prose prose-lg max-w-none font-sans text-navy/80 space-y-6">
+      <div class="bg-cream border-l-4 border-coral p-6 mb-8">
+        <p class="font-serif text-xl text-navy mb-2">🍹 Must-try: The Dark 'n Stormy</p>
+        <p>Bermuda's most famous cocktail — Gosling's Black Seal rum over ginger beer with a squeeze of lime. It's practically the law to try at least one.</p>
+      </div>
+      <h2 class="font-serif text-3xl text-navy">Bermudian Classics</h2>
+      <p>Fish chowder (with sherry peppers and dark rum), the Bermuda fish sandwich, fish cakes, and of course the rum swizzle — these are the things you can only truly experience in Bermuda. Seek them out.</p>
+      <h2 class="font-serif text-3xl text-navy">Hamilton</h2>
+      <p>Bermuda's small capital has a great concentration of restaurants, bars, and cafes. Front Street and the surrounding streets are worth an evening wander and dinner.</p>
+      <h2 class="font-serif text-3xl text-navy">Dining Tips</h2>
+      <ul>
+        <li>Bermuda is not cheap — budget roughly $30–60 per head for a sit-down dinner without wine.</li>
+        <li>Book ahead for popular restaurants, especially on weekends.</li>
+        <li>Service charges (usually 17%) are often included — check before tipping.</li>
+        <li>The dress code is generally "smart casual" at nicer restaurants.</li>
+      </ul>
+      <p class="text-navy/50 text-sm italic">✏️ Ben will add his personal favourites and any group dinner plans here.</p>
+    </div>
+  </InfoPage>
+</BaseLayout>

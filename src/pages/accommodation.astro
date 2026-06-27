@@ -1,0 +1,36 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import InfoPage from '../components/InfoPage.astro';
+---
+
+<BaseLayout title="Accommodation — Ben & Caitlin · Bermuda 2027" description="Where to stay in Bermuda for Ben & Caitlin's wedding week.">
+  <InfoPage
+    heading="Where to Stay"
+    subheading="Accommodation in Bermuda"
+    intro="We have a block of rooms reserved at The Reefs for wedding guests. Alternatives are available across the island for different budgets."
+    linkCards={[
+      { title: 'The Reefs Resort & Club', description: 'Our wedding venue — rooms and cottages perched on the cliffs above the South Shore. The most magical place to stay. **Block booking details to follow.**', url: 'https://www.thereefs.com' },
+      { title: 'Elbow Beach Bermuda', description: 'A classic Bermuda resort on one of the island\'s most famous pink-sand beaches. Walking distance to several of our events.', url: 'https://www.elbowbeachbermuda.com' },
+      { title: 'Cambridge Beaches Resort', description: 'A beautiful cottage colony resort in Sandys Parish. More secluded, with private beach access and a spa.', url: 'https://www.cambridgebeaches.com' },
+      { title: 'Airbnb Bermuda', description: 'Cottages and apartments across the island, great for groups. Paget and Warwick parishes are ideal locations for the week.', url: 'https://www.airbnb.com' },
+    ]}
+  >
+    <div class="prose prose-lg max-w-none font-sans text-navy/80 space-y-6">
+      <div class="bg-cream border-l-4 border-coral p-6 mb-8">
+        <p class="font-serif text-xl text-navy mb-2">🏨 Room block</p>
+        <p>We are working on securing a block of rooms at The Reefs for guests. Details and a booking code will be shared here once confirmed — <strong>watch this space!</strong></p>
+      </div>
+      <h2 class="font-serif text-3xl text-navy">Staying at The Reefs</h2>
+      <p>The Reefs is a boutique clifftop resort with its own private beach, pool, and restaurant. Staying on-site means you'll be right at the heart of the celebrations and won't need to worry about transport to the wedding.</p>
+      <h2 class="font-serif text-3xl text-navy">Other options</h2>
+      <p>Bermuda has a range of accommodation options from large resort hotels to charming cottage colonies and Airbnb rentals. Most of the island is within 30–45 minutes by scooter or taxi, so you have plenty of flexibility.</p>
+      <h2 class="font-serif text-3xl text-navy">Booking tips</h2>
+      <ul>
+        <li>Book early — summer in Bermuda is busy and rooms fill up fast.</li>
+        <li>If you're a group, a shared cottage or Airbnb can be great value and fun.</li>
+        <li>Ask Ben for a recommendation if you're not sure what suits you best.</li>
+      </ul>
+      <p class="text-navy/50 text-sm italic">✏️ Ben will add the room block booking link and more specific recommendations here.</p>
+    </div>
+  </InfoPage>
+</BaseLayout>

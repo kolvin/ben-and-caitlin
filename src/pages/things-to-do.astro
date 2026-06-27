@@ -1,0 +1,34 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import InfoPage from '../components/InfoPage.astro';
+---
+
+<BaseLayout title="Things To Do — Ben & Caitlin · Bermuda 2027" description="Things to do in Bermuda during Ben & Caitlin's wedding week.">
+  <InfoPage
+    heading="Things To Do"
+    subheading="Explore Bermuda"
+    intro="Bermuda is a magical island with pink-sand beaches, crystal-clear water, historic sites, and some of the best snorkelling in the Atlantic."
+    linkCards={[
+      { title: 'Horseshoe Bay Beach', description: 'Perhaps the most famous beach in Bermuda — pink sand, turquoise water, and dramatic rock formations. A must-visit.' },
+      { title: 'Crystal Caves', description: 'Spectacular underground caves with crystal-clear underground lakes and stalactites. One of Bermuda\'s top attractions.' },
+      { title: 'Snorkelling at Church Bay', description: 'One of the best snorkelling spots on the island, with shallow reefs teeming with colourful fish and coral.' },
+      { title: 'St. George\'s Old Town', description: 'A UNESCO World Heritage Site — Bermuda\'s original capital, full of pastel-painted buildings, history, and great cafes.' },
+      { title: 'Gibbs Hill Lighthouse', description: 'Climb the 185 steps for 360° panoramic views of the entire island. Stunning at sunset.' },
+      { title: 'Bermuda Railway Trail', description: 'A scenic trail along the old Bermuda Railway route — perfect for cycling or walking through nature.' },
+    ]}
+  >
+    <div class="prose prose-lg max-w-none font-sans text-navy/80 space-y-6">
+      <div class="bg-cream border-l-4 border-teal p-6 mb-8">
+        <p class="font-serif text-xl text-navy mb-2">🌊 Don't miss</p>
+        <p>If you do nothing else in Bermuda, get in the water. The visibility is extraordinary — mask, snorkel, and fins can be rented cheaply almost anywhere.</p>
+      </div>
+      <h2 class="font-serif text-3xl text-navy">Beaches</h2>
+      <p>Bermuda's South Shore is lined with world-famous pink-sand beaches. Horseshoe Bay is the most popular, but Elbow Beach, Warwick Long Bay, and Jobson's Cove are all stunning and usually less crowded.</p>
+      <h2 class="font-serif text-3xl text-navy">Water Activities</h2>
+      <p>Snorkelling, diving, kayaking, paddleboarding, jet skiing, glass-bottom boat tours — Bermuda has it all. The water is warm, calm, and exceptionally clear in June.</p>
+      <h2 class="font-serif text-3xl text-navy">History & Culture</h2>
+      <p>Visit St. George's UNESCO Old Town, the Royal Naval Dockyard, the Bermuda Museum, and the colourful streets of Hamilton. The island punches well above its weight for history and culture.</p>
+      <p class="text-navy/50 text-sm italic">✏️ Ben will add his personal recommendations and local tips here.</p>
+    </div>
+  </InfoPage>
+</BaseLayout>

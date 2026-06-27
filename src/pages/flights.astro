@@ -1,0 +1,32 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import InfoPage from '../components/InfoPage.astro';
+---
+
+<BaseLayout title="Flights — Ben & Caitlin · Bermuda 2027" description="How to get to Bermuda for Ben & Caitlin's wedding in June 2027.">
+  <InfoPage
+    heading="Getting There"
+    subheading="Flights to Bermuda"
+    intro="L.F. Wade International Airport (BDA) is Bermuda's only airport. Flights are available from the US East Coast, UK, and Canada."
+    linkCards={[
+      { title: 'British Airways', description: 'Direct flights from London Heathrow to Bermuda. Typically 8–9 hours. Check seasonal schedules for June 2027.', url: 'https://www.britishairways.com' },
+      { title: 'American Airlines', description: 'Frequent daily service from New York JFK, Miami, and Charlotte. Great options if connecting from the US.', url: 'https://www.aa.com' },
+      { title: 'Delta Air Lines', description: 'Flights from New York JFK and Atlanta. Often competitive on price from the US East Coast.', url: 'https://www.delta.com' },
+      { title: 'United Airlines', description: 'Service from Newark, Boston, and Washington Dulles. Good frequency from the northeast US.', url: 'https://www.united.com' },
+    ]}
+  >
+    <div class="prose prose-lg max-w-none font-sans text-navy/80 space-y-6">
+      <div class="bg-cream border-l-4 border-gold p-6 mb-8">
+        <p class="font-serif text-xl text-navy mb-2">✈️ Top tip</p>
+        <p>Book flights early — Bermuda is a popular summer destination and seats fill up fast. We'd recommend aiming to arrive <strong>Wednesday 1st or 2nd June</strong> to make the most of the week.</p>
+      </div>
+      <h2 class="font-serif text-3xl text-navy">Flying from the UK</h2>
+      <p>British Airways operates direct flights from London Heathrow. The flight takes around 8–9 hours. Check for the best availability in May/June 2027.</p>
+      <h2 class="font-serif text-3xl text-navy">Flying from the US</h2>
+      <p>Bermuda is well connected from the US East Coast. New York, Boston, Philadelphia, Washington, Miami, and Atlanta all have regular service. Flight time is 2–3 hours from the northeast US.</p>
+      <h2 class="font-serif text-3xl text-navy">Flying from Canada</h2>
+      <p>WestJet and Air Canada offer service from Toronto. Flight time is approximately 3 hours.</p>
+      <p class="text-navy/50 text-sm italic">✏️ Ben will update this page with specific flight recommendations and any group booking details.</p>
+    </div>
+  </InfoPage>
+</BaseLayout>

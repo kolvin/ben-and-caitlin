@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Lato:wght@300;400;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-cream text-navy font-sans;
+  }
+}
+
+@layer components {
+  .nav-link {
+    @apply text-cream/90 hover:text-gold transition-colors duration-200 text-sm font-sans tracking-widest uppercase;
+  }
+  .btn-primary {
+    @apply inline-block bg-coral text-cream font-serif text-lg px-8 py-3 border-2 border-coral hover:bg-transparent hover:text-coral transition-all duration-300 tracking-wide;
+  }
+  .btn-outline {
+    @apply inline-block border-2 border-navy text-navy font-serif text-lg px-8 py-3 hover:bg-navy hover:text-cream transition-all duration-300 tracking-wide;
+  }
+  .section-title {
+    @apply font-serif text-4xl md:text-5xl text-navy mb-4;
+  }
+  .vintage-divider {
+    @apply flex items-center gap-4 my-6;
+  }
+  .vintage-divider::before,
+  .vintage-divider::after {
+    content: '';
+    @apply flex-1 h-px bg-gold/50;
+  }
+}

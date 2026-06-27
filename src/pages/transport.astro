@@ -1,0 +1,34 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import InfoPage from '../components/InfoPage.astro';
+---
+
+<BaseLayout title="Transport — Ben & Caitlin · Bermuda 2027" description="How to get around Bermuda during Ben & Caitlin's wedding week.">
+  <InfoPage
+    heading="Getting Around"
+    subheading="On-Island Transport"
+    intro="Bermuda is small — about 21 miles long — but there's no car rental for tourists. The good news: taxis, scooters, ferries, and buses make it easy to explore."
+    linkCards={[
+      { title: 'Scooter Rental', description: 'The quintessential Bermuda experience. Scooters (and two-seat electric cycles) can be rented from most hotels or dedicated shops. Highly recommended.' },
+      { title: 'Taxis', description: 'Widely available, official BDA taxis are metered and reliable. The app "Bermuda Taxi" makes booking easy. Good for evenings when you want a drink.' },
+      { title: 'Ferry Service', description: 'Bermuda has a lovely ferry system connecting Hamilton to the Royal Dockyard, Somerset, and St. George\'s. Scenic and great value.' },
+      { title: 'Public Bus', description: 'The public bus network covers most of the island and is very cheap. Takes longer but is a great way to see the island like a local.' },
+    ]}
+  >
+    <div class="prose prose-lg max-w-none font-sans text-navy/80 space-y-6">
+      <div class="bg-cream border-l-4 border-gold p-6 mb-8">
+        <p class="font-serif text-xl text-navy mb-2">🛵 Top tip: Get a scooter</p>
+        <p>Renting a scooter or e-cycle is the best way to explore Bermuda at your own pace. Remember — you'll be driving on the <strong>left</strong>, and the speed limit is 35 km/h. Helmets are compulsory and included with rental.</p>
+      </div>
+      <h2 class="font-serif text-3xl text-navy">Scooters & E-Cycles</h2>
+      <p>Most hotels have scooter rental on-site, or you can book through dedicated rental shops like Oleander Cycles. Two-seat scooters are available if you'd prefer to ride with a partner. Electric pedal-assist cycles are also available for a more leisurely option.</p>
+      <h2 class="font-serif text-3xl text-navy">Taxis</h2>
+      <p>Official blue taxis are metered and regulated. Download the Bermuda Taxi app for easy booking. Expect to pay around $10–20 for most journeys within the main tourist areas. Essential for evenings out when you don't want to scooter.</p>
+      <h2 class="font-serif text-3xl text-navy">Ferry</h2>
+      <p>The Bermuda ferry is a highlight in itself. The main routes connect Hamilton (the capital) with the Royal Dockyard and Somerset. Scenic, cheap, and a wonderful way to see the island from the water.</p>
+      <h2 class="font-serif text-3xl text-navy">Bus</h2>
+      <p>Bermuda's public buses are reliable and cover most of the island. A daily or weekly pass is excellent value. Buses run from Hamilton bus terminal to all major areas.</p>
+      <p class="text-navy/50 text-sm italic">✏️ Ben will add specific rental recommendations and event transport details here.</p>
+    </div>
+  </InfoPage>
+</BaseLayout>

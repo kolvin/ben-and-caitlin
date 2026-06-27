@@ -1,0 +1,194 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { events } from '../data/events';
+---
+
+<BaseLayout title="RSVP — Ben & Caitlin · Bermuda 2027" description="RSVP to Ben & Caitlin's wedding and events in Bermuda, June 2027.">
+  <div class="pt-14">
+    <section class="bg-navy text-cream py-16 text-center px-4">
+      <p class="text-gold tracking-[0.3em] uppercase text-xs font-sans mb-3">Please reply by 1 March 2027</p>
+      <h1 class="font-serif text-5xl md:text-6xl text-cream mb-4">RSVP</h1>
+      <div class="vintage-divider max-w-xs mx-auto">
+        <span class="text-gold">✦</span>
+      </div>
+      <p class="font-sans text-cream/70 max-w-lg mx-auto">
+        We'd love to celebrate every moment with you. Let us know which events you can join us for.
+      </p>
+    </section>
+
+    <section class="max-w-2xl mx-auto px-4 py-16">
+      <form
+        name="rsvp"
+        method="POST"
+        data-netlify="true"
+        netlify-honeypot="bot-field"
+        class="space-y-8"
+        id="rsvp-form"
+      >
+        <!-- Netlify hidden fields -->
+        <input type="hidden" name="form-name" value="rsvp" />
+        <p class="hidden">
+          <label>Don't fill this out: <input name="bot-field" /></label>
+        </p>
+
+        <!-- Full Name -->
+        <div class="form-group">
+          <label for="name" class="form-label">Full Name <span class="text-coral">*</span></label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            required
+            class="form-input"
+            placeholder="Jane Smith"
+          />
+        </div>
+
+        <!-- Email -->
+        <div class="form-group">
+          <label for="email" class="form-label">Email Address <span class="text-coral">*</span></label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            required
+            class="form-input"
+            placeholder="jane@example.com"
+          />
+        </div>
+
+        <!-- Attending wedding -->
+        <div class="form-group">
+          <label class="form-label">Will you be attending the wedding? <span class="text-coral">*</span></label>
+          <div class="flex gap-6 mt-2">
+            <label class="radio-label">
+              <input type="radio" name="attending_wedding" value="yes" required class="radio-input" />
+              <span class="radio-custom"></span>
+              <span>Yes, I'll be there!</span>
+            </label>
+            <label class="radio-label">
+              <input type="radio" name="attending_wedding" value="no" class="radio-input" />
+              <span class="radio-custom"></span>
+              <span>Unable to attend</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Events checkboxes -->
+        <div class="form-group">
+          <label class="form-label">Which other events will you attend?</label>
+          <p class="text-sm text-navy/60 font-sans mb-4">Select all that apply</p>
+          <div class="space-y-3">
+            {events.filter(e => e.id !== 'wedding').map(event => (
+              <label class="checkbox-label">
+                <input
+                  type="checkbox"
+                  name="events"
+                  value={event.id}
+                  class="checkbox-input"
+                />
+                <span class="checkbox-custom"></span>
+                <span>
+                  <span class="font-medium">{event.title}</span>
+                  <span class="text-navy/60 text-sm ml-2">— {event.date}{event.venue !== 'TBC' ? `, ${event.venue}` : ''}</span>
+                </span>
+              </label>
+            ))}
+          </div>
+        </div>
+
+        <!-- Dietary requirements -->
+        <div class="form-group">
+          <label for="dietary" class="form-label">Dietary Requirements</label>
+          <textarea
+            id="dietary"
+            name="dietary"
+            rows="3"
+            class="form-input resize-none"
+            placeholder="Please let us know about any dietary requirements, allergies, or preferences..."
+          ></textarea>
+        </div>
+
+        <!-- Message -->
+        <div class="form-group">
+          <label for="message" class="form-label">Message for Ben & Caitlin <span class="text-navy/40 font-normal">(optional)</span></label>
+          <textarea
+            id="message"
+            name="message"
+            rows="4"
+            class="form-input resize-none"
+            placeholder="Share a message, a memory, or just say hello..."
+          ></textarea>
+        </div>
+
+        <!-- Submit -->
+        <div class="pt-4 text-center">
+          <button type="submit" class="btn-primary cursor-pointer w-full sm:w-auto">
+            Send My RSVP
+          </button>
+        </div>
+      </form>
+
+      <!-- Success message (shown after redirect) -->
+      <div id="success-message" class="hidden text-center py-16">
+        <div class="text-gold text-5xl mb-6">✦</div>
+        <h2 class="font-serif text-3xl text-navy mb-4">Thank you!</h2>
+        <p class="font-sans text-navy/70">We've received your RSVP and can't wait to celebrate with you in Bermuda.</p>
+      </div>
+    </section>
+  </div>
+</BaseLayout>
+
+<style>
+  .vintage-divider {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 1.5rem auto;
+  }
+  .vintage-divider::before,
+  .vintage-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: #C9A84C;
+    opacity: 0.5;
+  }
+  .form-label {
+    @apply block font-serif text-navy text-lg mb-2;
+  }
+  .form-input {
+    @apply w-full border-2 border-navy/20 bg-white text-navy font-sans px-4 py-3 focus:outline-none focus:border-teal transition-colors;
+  }
+  .radio-label {
+    @apply flex items-center gap-3 cursor-pointer font-sans text-navy;
+  }
+  .radio-input {
+    @apply accent-teal w-5 h-5;
+  }
+  .checkbox-label {
+    @apply flex items-start gap-3 cursor-pointer font-sans text-navy leading-relaxed;
+  }
+  .checkbox-input {
+    @apply accent-teal w-5 h-5 mt-0.5 flex-shrink-0;
+  }
+  .radio-custom, .checkbox-custom {
+    display: none;
+  }
+</style>
+
+<script>
+  // Pre-select event from URL param
+  const params = new URLSearchParams(window.location.search);
+  const preselect = params.get('event');
+  if (preselect) {
+    const checkbox = document.querySelector(`input[name="events"][value="${preselect}"]`) as HTMLInputElement;
+    if (checkbox) checkbox.checked = true;
+  }
+
+  // Show success if redirected back with ?success
+  if (params.get('success') === 'true') {
+    document.getElementById('rsvp-form')?.classList.add('hidden');
+    document.getElementById('success-message')?.classList.remove('hidden');
+  }
+</script>

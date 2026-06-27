@@ -80,30 +80,36 @@ const infoPages = [
   </section>
 
   <!-- ─── SAVE THE DATE band ─── -->
-  <section class="bg-navy text-parchment py-16 text-center px-4">
-    <p class="font-sans text-gold/70 text-[0.6rem] tracking-[0.35em] uppercase mb-3">Save the date</p>
-    <h2 class="font-script text-5xl md:text-6xl text-parchment mb-3">The Reefs, Bermuda</h2>
+  <section class="py-16 text-center px-4" style="background-color: #1A3A5C;">
+    <p class="font-sans text-[0.6rem] tracking-[0.35em] uppercase mb-3" style="color: rgba(168,135,74,0.8);">Save the date</p>
+    <h2 class="font-script text-5xl md:text-6xl mb-3" style="color: #F5EDD6;">The Reefs, Bermuda</h2>
     <div class="divider-gold max-w-[160px] mx-auto"></div>
-    <p class="font-serif font-light text-parchment/70 text-sm tracking-[0.15em] uppercase mb-8">Saturday 5 June 2027</p>
-    <p class="font-serif font-light text-parchment/60 max-w-xl mx-auto text-sm leading-relaxed mb-10">
+    <p class="font-serif font-light text-sm tracking-[0.15em] uppercase mb-8" style="color: rgba(245,237,214,0.7);">Saturday 5 June 2027</p>
+    <p class="font-serif font-light max-w-xl mx-auto text-sm leading-relaxed mb-10" style="color: rgba(245,237,214,0.6);">
       Perched on the cliffs above the turquoise South Shore, The Reefs is one of Bermuda's most romantic settings —
       the perfect place to celebrate with the people we love most.
     </p>
     <div class="flex flex-col sm:flex-row gap-4 justify-center">
-      <a href="/accommodation" class="inline-block border border-gold/50 text-gold font-sans text-[0.65rem] px-8 py-3 tracking-[0.18em] uppercase hover:border-gold hover:text-parchment transition-all duration-300">Where to Stay</a>
-      <a href="/flights" class="inline-block border border-parchment/30 text-parchment/60 font-sans text-[0.65rem] px-8 py-3 tracking-[0.18em] uppercase hover:border-parchment/60 hover:text-parchment/90 transition-all duration-300">Getting There</a>
+      <a href="/accommodation" class="font-sans text-[0.65rem] px-8 py-3 tracking-[0.18em] uppercase transition-all duration-300"
+        style="border: 1px solid rgba(168,135,74,0.6); color: #A8874A;"
+        onmouseover="this.style.color='#F5EDD6';this.style.borderColor='#A8874A'"
+        onmouseout="this.style.color='#A8874A';this.style.borderColor='rgba(168,135,74,0.6)'">Where to Stay</a>
+      <a href="/flights" class="font-sans text-[0.65rem] px-8 py-3 tracking-[0.18em] uppercase transition-all duration-300"
+        style="border: 1px solid rgba(245,237,214,0.4); color: rgba(245,237,214,0.7);"
+        onmouseover="this.style.color='#F5EDD6';this.style.borderColor='rgba(245,237,214,0.8)'"
+        onmouseout="this.style.color='rgba(245,237,214,0.7)';this.style.borderColor='rgba(245,237,214,0.4)'">Getting There</a>
     </div>
   </section>
 
   <!-- ─── RSVP CTA ─── -->
   <section class="py-20 text-center px-4" style="background-image: url('/images/wall-only.png'); background-size: cover;">
-    <p class="font-sans text-navy/50 text-[0.6rem] tracking-[0.35em] uppercase mb-3">Don't forget</p>
-    <h2 class="font-script text-5xl text-navy mb-2">Let us know you're coming</h2>
+    <p class="font-sans text-[0.6rem] tracking-[0.35em] uppercase mb-3" style="color: rgba(26,58,92,0.5);">Don't forget</p>
+    <h2 class="font-script text-5xl mb-2" style="color: #1A3A5C;">Let us know you're coming</h2>
     <div class="divider-gold max-w-[160px] mx-auto"></div>
-    <p class="font-serif font-light text-navy/60 text-sm max-w-md mx-auto mb-8">
+    <p class="font-serif font-light text-sm max-w-md mx-auto mb-8" style="color: rgba(26,58,92,0.6);">
       Please RSVP by <strong class="font-medium">1 March 2027</strong> so we can plan the most wonderful week for you.
     </p>
-    <a href="/rsvp" class="btn-primary text-[0.65rem]">RSVP Now</a>
+    <a href="/rsvp" class="btn-primary">RSVP Now</a>
   </section>
 
 </BaseLayout>

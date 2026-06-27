@@ -15,29 +15,75 @@
 
 @layer components {
   .nav-link {
-    @apply text-navy/80 hover:text-navy transition-colors duration-200 text-xs font-sans tracking-[0.18em] uppercase;
+    color: rgba(26, 58, 92, 0.8);
+    font-size: 0.75rem;
+    font-family: "Lato", system-ui, sans-serif;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    transition: color 0.2s;
   }
-  .nav-link-light {
-    @apply text-parchment/80 hover:text-parchment transition-colors duration-200 text-xs font-sans tracking-[0.18em] uppercase;
-  }
+  .nav-link:hover { color: #1A3A5C; }
+
   .btn-primary {
-    @apply inline-block bg-navy text-parchment font-sans font-medium text-[0.65rem] px-8 py-3 tracking-[0.2em] uppercase hover:bg-navy/80 transition-all duration-300;
+    display: inline-block;
+    background-color: #1A3A5C;
+    color: #F5EDD6;
+    font-family: "Lato", system-ui, sans-serif;
+    font-weight: 500;
+    font-size: 0.65rem;
+    padding: 0.75rem 2rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    transition: background-color 0.3s;
   }
+  .btn-primary:hover { background-color: rgba(26, 58, 92, 0.8); }
+
   .btn-outline {
-    @apply inline-block border-2 border-navy text-navy bg-parchment/80 font-sans font-medium text-[0.65rem] px-8 py-3 tracking-[0.2em] uppercase hover:bg-navy hover:text-parchment transition-all duration-300;
+    display: inline-block;
+    border: 2px solid #1A3A5C;
+    color: #1A3A5C;
+    background-color: rgba(245, 237, 214, 0.8);
+    font-family: "Lato", system-ui, sans-serif;
+    font-weight: 500;
+    font-size: 0.65rem;
+    padding: 0.75rem 2rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    transition: all 0.3s;
   }
+  .btn-outline:hover { background-color: #1A3A5C; color: #F5EDD6; }
+
   .btn-outline-light {
-    @apply inline-block border-2 border-parchment text-parchment font-sans font-medium text-[0.65rem] px-8 py-3 tracking-[0.2em] uppercase hover:bg-parchment hover:text-navy transition-all duration-300;
+    display: inline-block;
+    border: 2px solid #F5EDD6;
+    color: #F5EDD6;
+    font-family: "Lato", system-ui, sans-serif;
+    font-weight: 500;
+    font-size: 0.65rem;
+    padding: 0.75rem 2rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    transition: all 0.3s;
   }
+  .btn-outline-light:hover { background-color: #F5EDD6; color: #1A3A5C; }
+
   .section-title {
-    @apply font-serif text-4xl md:text-5xl font-light text-navy;
+    @apply font-serif text-4xl md:text-5xl font-light;
+    color: #1A3A5C;
   }
+
   .divider-gold {
-    @apply flex items-center gap-3 my-5;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin: 1rem auto;
   }
   .divider-gold::before,
   .divider-gold::after {
     content: '';
-    @apply flex-1 h-px bg-gold/40;
+    flex: 1;
+    height: 1px;
+    background: #A8874A;
+    opacity: 0.4;
   }
 }

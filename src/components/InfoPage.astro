@@ -8,34 +8,36 @@ interface Props {
   heading: string;
   subheading?: string;
   intro: string;
-  accentColor?: string;
   linkCards?: LinkCard[];
 }
-const { heading, subheading, intro, accentColor = 'teal', linkCards = [] } = Astro.props;
+const { heading, subheading, intro, linkCards = [] } = Astro.props;
 ---
 
-<div class="pt-14">
-  <section class="bg-navy text-cream py-20 text-center px-4">
-    {subheading && <p class="text-gold tracking-[0.3em] uppercase text-xs font-sans mb-3">{subheading}</p>}
-    <h1 class="font-serif text-5xl md:text-6xl text-cream mb-4">{heading}</h1>
-    <div class="vintage-divider max-w-xs mx-auto">
-      <span class="text-gold">✦</span>
-    </div>
-    <p class="font-sans text-cream/70 max-w-2xl mx-auto">{intro}</p>
+<div class="pt-12">
+  <!-- Header on wall texture -->
+  <section
+    class="py-20 text-center px-4"
+    style="background-image: url('/images/wall-only.png'); background-size: cover; background-position: center;"
+  >
+    {subheading && <p class="font-sans text-navy/50 text-[0.6rem] tracking-[0.35em] uppercase mb-4">{subheading}</p>}
+    <h1 class="font-script text-6xl md:text-7xl text-navy mb-2">{heading}</h1>
+    <div class="divider-gold max-w-[160px] mx-auto"></div>
+    <p class="font-serif font-light text-navy/60 text-sm max-w-xl mx-auto leading-relaxed">{intro}</p>
   </section>
 
-  <section class="max-w-4xl mx-auto px-4 py-16">
+  <!-- Body -->
+  <section class="max-w-4xl mx-auto px-6 py-16">
     <slot />
 
     {linkCards.length > 0 && (
-      <div class="grid sm:grid-cols-2 gap-6 mt-12">
+      <div class="grid sm:grid-cols-2 gap-5 mt-12">
         {linkCards.map(card => (
-          <div class="border-2 border-navy/10 p-6 hover:border-teal transition-colors">
-            <h3 class="font-serif text-xl text-navy mb-2">{card.title}</h3>
-            <p class="font-sans text-navy/70 text-sm leading-relaxed mb-4">{card.description}</p>
+          <div class="border border-navy/10 p-6 bg-white/40 hover:border-gold/40 transition-colors">
+            <h3 class="font-serif text-lg font-medium text-navy mb-2">{card.title}</h3>
+            <p class="font-serif font-light text-navy/60 text-sm leading-relaxed mb-4">{card.description}</p>
             {card.url && (
               <a href={card.url} target="_blank" rel="noopener noreferrer"
-                class="text-teal text-sm font-sans hover:text-coral transition-colors tracking-wide">
+                class="font-sans text-[0.65rem] tracking-[0.18em] uppercase text-navy/50 hover:text-navy transition-colors">
                 Visit website →
               </a>
             )}
@@ -47,18 +49,18 @@ const { heading, subheading, intro, accentColor = 'teal', linkCards = [] } = Ast
 </div>
 
 <style>
-  .vintage-divider {
+  .divider-gold {
     display: flex;
     align-items: center;
-    gap: 1rem;
-    margin: 1.5rem auto;
+    gap: 0.75rem;
+    margin: 1rem auto;
   }
-  .vintage-divider::before,
-  .vintage-divider::after {
+  .divider-gold::before,
+  .divider-gold::after {
     content: '';
     flex: 1;
     height: 1px;
-    background: #C9A84C;
-    opacity: 0.5;
+    background: #A8874A;
+    opacity: 0.4;
   }
 </style>

@@ -4,14 +4,16 @@ export default {
   theme: {
     extend: {
       colors: {
-        cream: '#F5EDD6',
-        navy: '#1B3A5C',
+        cream: '#EDE0C8',
+        parchment: '#F5EDD6',
+        navy: '#1A3A5C',
         teal: '#2A7F7F',
         coral: '#C94F2C',
-        gold: '#C9A84C',
+        gold: '#A8874A',
       },
       fontFamily: {
-        serif: ['"Playfair Display"', 'Georgia', 'serif'],
+        script: ['"Great Vibes"', 'cursive'],
+        serif: ['"Cormorant Garamond"', '"Playfair Display"', 'Georgia', 'serif'],
         sans: ['"Lato"', 'system-ui', 'sans-serif'],
       },
     },

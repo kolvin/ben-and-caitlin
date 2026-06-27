@@ -4,66 +4,65 @@ import { events } from '../../data/events';
 ---
 
 <BaseLayout title="Events — Ben & Caitlin · Bermuda 2027" description="All events for Ben & Caitlin's wedding week in Bermuda, June 2027.">
-  <div class="pt-14">
+  <div class="pt-12">
     <!-- Header -->
-    <section class="bg-navy text-cream py-20 text-center px-4">
-      <p class="text-gold tracking-[0.3em] uppercase text-xs font-sans mb-3">Bermuda · June 2027</p>
-      <h1 class="font-serif text-5xl md:text-6xl text-cream mb-4">The Events</h1>
-      <div class="vintage-divider max-w-xs mx-auto">
-        <span class="text-gold">✦</span>
-      </div>
-      <p class="font-sans text-cream/70 max-w-xl mx-auto">
+    <section
+      class="py-20 text-center px-4"
+      style="background-image: url('/images/wall-only.png'); background-size: cover;"
+    >
+      <p class="font-sans text-navy/50 text-[0.6rem] tracking-[0.35em] uppercase mb-4">Bermuda · June 2027</p>
+      <h1 class="font-script text-6xl md:text-7xl text-navy mb-2">The Events</h1>
+      <div class="divider-gold max-w-[160px] mx-auto"></div>
+      <p class="font-serif font-light text-navy/60 text-sm max-w-lg mx-auto">
         A full week of celebrations leading up to the big day. Click any event to find out more.
       </p>
     </section>
 
     <!-- Events grid -->
-    <section class="max-w-7xl mx-auto px-4 py-16">
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-        {events.map((event) => (
+    <section class="max-w-6xl mx-auto px-6 py-16">
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-6 md:gap-10">
+        {events.map((event, i) => (
           <a
             href={`/events/${event.slug}`}
-            class="group block bg-white shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 overflow-hidden"
+            class="group block relative"
+            style={`transform: rotate(${[-1.2, 0.8, -0.5, 1.0, -0.7, 0.4][i % 6]}deg)`}
           >
-            <div class="overflow-hidden">
+            <div class="absolute -top-2 left-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-[#8B7355] shadow-md z-10 before:content-[''] before:absolute before:inset-[3px] before:rounded-full before:bg-[#C4A882]"></div>
+            <div class="shadow-[4px_8px_24px_rgba(0,0,0,0.2)] group-hover:shadow-[6px_12px_32px_rgba(0,0,0,0.32)] transition-all duration-300 group-hover:scale-[1.03] group-hover:-rotate-0">
               <img
                 src={event.image}
                 alt={event.title}
-                class="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500"
+                class="w-full h-auto block"
                 loading="lazy"
               />
             </div>
-            <div class="p-5 border-t-4 border-teal">
-              <h2 class="font-serif text-xl text-navy mb-1">{event.title}</h2>
-              <p class="text-sm text-gold font-sans tracking-wide mb-1">{event.date}</p>
-              <p class="text-sm text-navy/60 font-sans">{event.venue}</p>
-            </div>
+            <p class="text-center font-serif font-light text-xs text-navy/50 mt-3 tracking-wide">{event.title}</p>
           </a>
         ))}
       </div>
     </section>
 
     <!-- RSVP CTA -->
-    <section class="bg-cream border-t border-gold/20 py-14 text-center px-4">
-      <p class="font-sans text-navy/70 mb-4">Ready to join us?</p>
-      <a href="/rsvp" class="btn-primary">RSVP for All Events</a>
+    <section class="bg-navy py-14 text-center px-4">
+      <p class="font-serif font-light text-parchment/60 text-sm mb-6">Ready to join us?</p>
+      <a href="/rsvp" class="inline-block border border-parchment/40 text-parchment font-sans text-[0.65rem] px-8 py-3 tracking-[0.18em] uppercase hover:border-parchment hover:bg-parchment/10 transition-all duration-300">RSVP for All Events</a>
     </section>
   </div>
 </BaseLayout>
 
 <style>
-  .vintage-divider {
+  .divider-gold {
     display: flex;
     align-items: center;
-    gap: 1rem;
-    margin: 1.5rem auto;
+    gap: 0.75rem;
+    margin: 1rem auto;
   }
-  .vintage-divider::before,
-  .vintage-divider::after {
+  .divider-gold::before,
+  .divider-gold::after {
     content: '';
     flex: 1;
     height: 1px;
-    background: #C9A84C;
-    opacity: 0.5;
+    background: #A8874A;
+    opacity: 0.4;
   }
 </style>

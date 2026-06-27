@@ -1,153 +1,126 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { events } from '../data/events';
+
+const infoPages = [
+  { label: 'Flights', href: '/flights', image: '/images/room-background.png' },
+  { label: 'Accommodation', href: '/accommodation', image: '/images/room-background.png' },
+  { label: 'Guide', href: '/things-to-do', image: '/images/room-background.png' },
+  { label: 'Transport', href: '/transport', image: '/images/room-background.png' },
+  { label: 'Food & Drink', href: '/food-and-drink', image: '/images/room-background.png' },
+];
 ---
 
-<BaseLayout title="Ben & Caitlin — Bermuda, June 2027">
-  <!-- Hero Section -->
+<BaseLayout title="Ben & Caitlin — Bermuda, June 2027" navLight={true}>
+
+  <!-- ─── HERO: full room photo, text floats on the wall ─── -->
   <section
-    class="relative min-h-screen flex flex-col items-center justify-center text-center overflow-hidden"
-    style="background-image: url('/images/room-background.png'); background-size: cover; background-position: center;"
+    class="relative min-h-screen flex items-center overflow-hidden"
+    style="background-image: url('/images/room-background.png'); background-size: cover; background-position: center top;"
   >
-    <!-- Overlay for readability -->
-    <div class="absolute inset-0 bg-navy/40"></div>
-
-    <!-- Hero content -->
-    <div class="relative z-10 px-4 py-20 pt-32">
-      <!-- Decorative top line -->
-      <p class="text-gold tracking-[0.4em] uppercase text-xs md:text-sm font-sans mb-6">You are cordially invited to celebrate</p>
-
-      <h1 class="font-serif text-5xl md:text-7xl lg:text-8xl text-cream mb-4 leading-tight">
-        Ben &amp; Caitlin
-      </h1>
-
-      <div class="vintage-divider max-w-xs mx-auto">
-        <span class="text-gold text-xl">✦</span>
+    <!-- Text block positioned in the upper-right wall area -->
+    <div class="relative z-10 w-full flex justify-center md:justify-end px-6 md:pr-16 lg:pr-28 pt-16 pb-8 md:pt-0">
+      <div class="text-center md:text-right max-w-sm md:max-w-xs lg:max-w-sm">
+        <p class="font-sans text-navy/60 text-[0.6rem] tracking-[0.35em] uppercase mb-4">We're getting married!</p>
+        <h1 class="font-script text-7xl md:text-8xl text-navy leading-none mb-2">
+          Ben &amp; Caitlin
+        </h1>
+        <div class="divider-gold max-w-[180px] mx-auto md:ml-auto md:mr-0"></div>
+        <p class="font-serif text-navy text-sm tracking-[0.2em] uppercase font-light mb-1">Saturday 5 June 2027</p>
+        <p class="font-serif text-navy/70 text-xs tracking-[0.3em] uppercase mb-8">Bermuda</p>
+        <div class="flex flex-col sm:flex-row gap-3 justify-center md:justify-end">
+          <a href="/rsvp" class="btn-primary">RSVP</a>
+          <a href="/events" class="btn-outline">View Events</a>
+        </div>
       </div>
-
-      <p class="font-serif italic text-2xl md:text-3xl text-cream/90 mb-2">
-        Saturday 5<sup>th</sup> June 2027
-      </p>
-      <p class="font-sans text-cream/80 tracking-widest uppercase text-sm md:text-base mb-12">
-        The Reefs · Bermuda
-      </p>
-
-      <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a href="/rsvp" class="btn-primary">
-          RSVP Now
-        </a>
-        <a href="/events" class="inline-block border-2 border-cream text-cream font-serif text-lg px-8 py-3 hover:bg-cream hover:text-navy transition-all duration-300 tracking-wide">
-          View Events
-        </a>
-      </div>
-    </div>
-
-    <!-- Scroll hint -->
-    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-      <svg class="w-6 h-6 text-cream/60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-      </svg>
     </div>
   </section>
 
-  <!-- Event Posters on the Wall -->
-  <section class="relative py-20 overflow-hidden"
-    style="background-image: url('/images/wall-only.png'); background-size: cover; background-position: center;">
-    <div class="absolute inset-0 bg-cream/85"></div>
-    <div class="relative z-10 max-w-7xl mx-auto px-4">
+  <!-- ─── EVENT POSTERS on the wall texture ─── -->
+  <section
+    class="relative py-20 overflow-hidden"
+    style="background-image: url('/images/wall-only.png'); background-size: cover; background-position: center;"
+  >
+    <div class="max-w-7xl mx-auto px-4 md:px-8">
+      <!-- Section heading -->
       <div class="text-center mb-14">
-        <p class="text-gold tracking-[0.3em] uppercase text-xs font-sans mb-3">A week of celebrations</p>
-        <h2 class="section-title">The Events</h2>
-        <div class="vintage-divider max-w-sm mx-auto">
-          <span class="text-gold text-lg">✦</span>
-        </div>
-        <p class="font-sans text-navy/70 max-w-lg mx-auto">
-          From spa days to the big day — six events across a beautiful Bermuda week. Click any poster for full details.
-        </p>
+        <p class="font-sans text-navy/50 text-[0.6rem] tracking-[0.35em] uppercase mb-3">A week of celebrations</p>
+        <h2 class="font-script text-5xl text-navy mb-2">The Events</h2>
+        <div class="divider-gold max-w-[160px] mx-auto"></div>
+        <p class="font-serif text-navy/60 text-sm font-light max-w-md mx-auto">Six events across a beautiful Bermuda week. Click any poster for full details.</p>
       </div>
 
-      <div class="grid grid-cols-2 md:grid-cols-3 gap-6 md:gap-8">
-        {events.map((event) => (
+      <!-- Posters: horizontal scroll on mobile, grid on desktop — displayed like hung prints -->
+      <div class="flex gap-4 md:gap-6 overflow-x-auto md:overflow-visible md:grid md:grid-cols-3 lg:grid-cols-6 pb-4 md:pb-0 snap-x snap-mandatory md:snap-none">
+        {events.map((event, i) => (
           <a
             href={`/events/${event.slug}`}
-            class="group relative block overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1"
+            class="group flex-shrink-0 w-[55vw] sm:w-[40vw] md:w-auto snap-center relative block"
+            style={`transform: rotate(${[-1.2, 0.8, -0.5, 1.0, -0.7, 0.4][i % 6]}deg)`}
           >
-            <!-- Poster image -->
-            <img
-              src={event.image}
-              alt={event.title}
-              class="w-full h-auto object-cover"
-              loading="lazy"
-            />
-            <!-- Hover overlay -->
-            <div class="absolute inset-0 bg-navy/0 group-hover:bg-navy/20 transition-all duration-300 flex items-end">
-              <div class="w-full p-3 bg-navy/80 text-cream translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-                <p class="font-serif text-sm font-semibold">{event.title}</p>
-                <p class="text-xs text-cream/70">{event.date}</p>
-              </div>
+            <!-- Pin/nail effect -->
+            <div class="absolute -top-2 left-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-[#8B7355] shadow-md z-10 before:content-[''] before:absolute before:inset-[3px] before:rounded-full before:bg-[#C4A882]"></div>
+            <!-- Poster with shadow like a framed print -->
+            <div class="shadow-[4px_8px_24px_rgba(0,0,0,0.25)] group-hover:shadow-[6px_12px_32px_rgba(0,0,0,0.35)] transition-shadow duration-300">
+              <img
+                src={event.image}
+                alt={event.title}
+                class="w-full h-auto block group-hover:scale-[1.02] transition-transform duration-500 origin-bottom"
+                loading="lazy"
+              />
             </div>
           </a>
         ))}
       </div>
 
-      <div class="text-center mt-10">
-        <a href="/events" class="btn-outline">
-          View All Events
-        </a>
+      <div class="text-center mt-12">
+        <a href="/events" class="btn-outline text-[0.65rem]">View All Events</a>
       </div>
     </div>
   </section>
 
-  <!-- The Location -->
-  <section class="py-20 bg-navy text-cream">
-    <div class="max-w-4xl mx-auto px-4 text-center">
-      <p class="text-gold tracking-[0.3em] uppercase text-xs font-sans mb-3">Where we're getting married</p>
-      <h2 class="font-serif text-4xl md:text-5xl text-cream mb-6">The Reefs, Bermuda</h2>
-      <div class="vintage-divider max-w-xs mx-auto">
-        <span class="text-gold">✦</span>
-      </div>
-      <p class="font-sans text-cream/80 max-w-2xl mx-auto mb-10 leading-relaxed">
-        Perched on the cliffs above the turquoise waters of the South Shore, The Reefs is one of Bermuda's most romantic settings.
-        Pink-sand beaches, ocean breezes, and a sky full of stars — the perfect place to start our forever.
-      </p>
-      <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a href="/accommodation" class="inline-block border-2 border-gold text-gold font-serif text-lg px-8 py-3 hover:bg-gold hover:text-navy transition-all duration-300 tracking-wide">
-          Where to Stay
-        </a>
-        <a href="/flights" class="inline-block border-2 border-cream/50 text-cream/80 font-serif text-lg px-8 py-3 hover:border-cream hover:text-cream transition-all duration-300 tracking-wide">
-          Getting There
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- RSVP CTA -->
-  <section class="py-20 bg-cream text-center px-4">
-    <p class="text-gold tracking-[0.3em] uppercase text-xs font-sans mb-3">Don't forget</p>
-    <h2 class="section-title">Let us know you're coming</h2>
-    <div class="vintage-divider max-w-xs mx-auto">
-      <span class="text-gold">✦</span>
-    </div>
-    <p class="font-sans text-navy/70 max-w-lg mx-auto mb-8">
-      Please RSVP by <strong>1 March 2027</strong> so we can plan the most wonderful week for you.
+  <!-- ─── SAVE THE DATE band ─── -->
+  <section class="bg-navy text-parchment py-16 text-center px-4">
+    <p class="font-sans text-gold/70 text-[0.6rem] tracking-[0.35em] uppercase mb-3">Save the date</p>
+    <h2 class="font-script text-5xl md:text-6xl text-parchment mb-3">The Reefs, Bermuda</h2>
+    <div class="divider-gold max-w-[160px] mx-auto"></div>
+    <p class="font-serif font-light text-parchment/70 text-sm tracking-[0.15em] uppercase mb-8">Saturday 5 June 2027</p>
+    <p class="font-serif font-light text-parchment/60 max-w-xl mx-auto text-sm leading-relaxed mb-10">
+      Perched on the cliffs above the turquoise South Shore, The Reefs is one of Bermuda's most romantic settings —
+      the perfect place to celebrate with the people we love most.
     </p>
-    <a href="/rsvp" class="btn-primary">RSVP Now</a>
+    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <a href="/accommodation" class="inline-block border border-gold/50 text-gold font-sans text-[0.65rem] px-8 py-3 tracking-[0.18em] uppercase hover:border-gold hover:text-parchment transition-all duration-300">Where to Stay</a>
+      <a href="/flights" class="inline-block border border-parchment/30 text-parchment/60 font-sans text-[0.65rem] px-8 py-3 tracking-[0.18em] uppercase hover:border-parchment/60 hover:text-parchment/90 transition-all duration-300">Getting There</a>
+    </div>
   </section>
+
+  <!-- ─── RSVP CTA ─── -->
+  <section class="py-20 text-center px-4" style="background-image: url('/images/wall-only.png'); background-size: cover;">
+    <p class="font-sans text-navy/50 text-[0.6rem] tracking-[0.35em] uppercase mb-3">Don't forget</p>
+    <h2 class="font-script text-5xl text-navy mb-2">Let us know you're coming</h2>
+    <div class="divider-gold max-w-[160px] mx-auto"></div>
+    <p class="font-serif font-light text-navy/60 text-sm max-w-md mx-auto mb-8">
+      Please RSVP by <strong class="font-medium">1 March 2027</strong> so we can plan the most wonderful week for you.
+    </p>
+    <a href="/rsvp" class="btn-primary text-[0.65rem]">RSVP Now</a>
+  </section>
+
 </BaseLayout>
 
 <style>
-  .vintage-divider {
+  .divider-gold {
     display: flex;
     align-items: center;
-    gap: 1rem;
-    margin: 1.5rem auto;
+    gap: 0.75rem;
+    margin: 1rem auto;
   }
-  .vintage-divider::before,
-  .vintage-divider::after {
+  .divider-gold::before,
+  .divider-gold::after {
     content: '';
     flex: 1;
     height: 1px;
-    background: #C9A84C;
-    opacity: 0.5;
+    background: #A8874A;
+    opacity: 0.4;
   }
 </style>

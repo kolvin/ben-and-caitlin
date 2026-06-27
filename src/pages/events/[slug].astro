@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { events, getEventBySlug } from '../../data/events';
+import { events } from '../../data/events';
 
 export function getStaticPaths() {
   return events.map(event => ({
@@ -19,92 +19,86 @@ const nextEvent = currentIndex < events.length - 1 ? events[currentIndex + 1] : 
   title={`${event.title} — Ben & Caitlin · Bermuda 2027`}
   description={event.description}
 >
-  <div class="pt-14">
-    <!-- Event hero with poster -->
-    <section class="bg-navy py-16 px-4">
+  <div class="pt-12">
+    <section
+      class="min-h-screen py-20 px-4"
+      style="background-image: url('/images/wall-only.png'); background-size: cover; background-position: center;"
+    >
       <div class="max-w-5xl mx-auto">
-        <div class="grid md:grid-cols-2 gap-12 items-center">
-          <!-- Poster -->
+        <div class="grid md:grid-cols-2 gap-16 items-center">
+
+          <!-- Poster — hung on the wall -->
           <div class="flex justify-center">
-            <div class="shadow-2xl max-w-xs md:max-w-full">
-              <img
-                src={event.image}
-                alt={event.title}
-                class="w-full h-auto"
-              />
+            <div class="relative" style="transform: rotate(-1deg);">
+              <div class="absolute -top-3 left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-[#8B7355] shadow-lg z-10 before:content-[''] before:absolute before:inset-[4px] before:rounded-full before:bg-[#C4A882]"></div>
+              <div class="shadow-[6px_12px_40px_rgba(0,0,0,0.28)] max-w-xs md:max-w-full">
+                <img
+                  src={event.image}
+                  alt={event.title}
+                  class="w-full h-auto block"
+                />
+              </div>
             </div>
           </div>
+
           <!-- Details -->
-          <div class="text-cream text-center md:text-left">
-            <p class="text-gold tracking-[0.3em] uppercase text-xs font-sans mb-4">Wedding Week 2027</p>
-            <h1 class="font-serif text-4xl md:text-5xl text-cream mb-4">{event.title}</h1>
-            <div class="vintage-divider md:justify-start max-w-xs">
-              <span class="text-gold">✦</span>
-            </div>
-            <div class="space-y-3 mb-8 font-sans">
-              <div class="flex items-start gap-3">
-                <span class="text-gold mt-1">📅</span>
-                <div>
-                  <p class="text-cream/50 text-xs uppercase tracking-widest">Date</p>
-                  <p class="text-cream font-medium">{event.date}</p>
-                </div>
+          <div class="text-center md:text-left">
+            <p class="font-sans text-navy/50 text-[0.6rem] tracking-[0.35em] uppercase mb-4">Wedding Week 2027</p>
+            <h1 class="font-script text-6xl text-navy mb-2">{event.title}</h1>
+            <div class="divider-gold max-w-[160px] mx-auto md:mx-0"></div>
+
+            <div class="space-y-4 mb-8 font-serif font-light text-sm">
+              <div class="flex gap-4 justify-center md:justify-start">
+                <span class="text-gold/70 text-xs tracking-[0.2em] uppercase w-14 shrink-0 pt-0.5">Date</span>
+                <span class="text-navy">{event.date}</span>
               </div>
               {event.time !== 'TBC' && (
-                <div class="flex items-start gap-3">
-                  <span class="text-gold mt-1">🕐</span>
-                  <div>
-                    <p class="text-cream/50 text-xs uppercase tracking-widest">Time</p>
-                    <p class="text-cream font-medium">{event.time}</p>
-                  </div>
+                <div class="flex gap-4 justify-center md:justify-start">
+                  <span class="text-gold/70 text-xs tracking-[0.2em] uppercase w-14 shrink-0 pt-0.5">Time</span>
+                  <span class="text-navy">{event.time}</span>
                 </div>
               )}
-              <div class="flex items-start gap-3">
-                <span class="text-gold mt-1">📍</span>
-                <div>
-                  <p class="text-cream/50 text-xs uppercase tracking-widest">Venue</p>
-                  <p class="text-cream font-medium">{event.venue}</p>
-                  {event.address !== 'Bermuda' && (
-                    <p class="text-cream/60 text-sm">{event.address}</p>
-                  )}
-                </div>
+              <div class="flex gap-4 justify-center md:justify-start">
+                <span class="text-gold/70 text-xs tracking-[0.2em] uppercase w-14 shrink-0 pt-0.5">Venue</span>
+                <span class="text-navy">
+                  {event.venue}
+                  {event.address !== 'Bermuda' && <span class="block text-navy/50 text-xs mt-0.5">{event.address}</span>}
+                </span>
               </div>
             </div>
-            <p class="font-sans text-cream/80 leading-relaxed mb-8">{event.description}</p>
-            <a href={`/rsvp?event=${event.id}`} class="btn-primary">
+
+            <p class="font-serif font-light text-navy/70 text-sm leading-relaxed mb-8 max-w-sm mx-auto md:mx-0">{event.description}</p>
+
+            <a href={`/rsvp?event=${event.id}`} class="btn-primary text-[0.65rem]">
               RSVP for This Event
             </a>
           </div>
+
         </div>
       </div>
     </section>
 
-    <!-- Carousel navigation -->
-    <nav class="bg-navy/95 border-t border-cream/10 py-6 px-4">
-      <div class="max-w-5xl mx-auto flex justify-between items-center gap-4">
+    <!-- Carousel nav -->
+    <nav class="bg-navy/95 py-5 px-6">
+      <div class="max-w-5xl mx-auto flex justify-between items-center">
         {prevEvent ? (
-          <a href={`/events/${prevEvent.slug}`} class="group flex items-center gap-3 text-cream/70 hover:text-cream transition-colors">
-            <svg class="w-5 h-5 group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+          <a href={`/events/${prevEvent.slug}`} class="group flex items-center gap-3 text-parchment/50 hover:text-parchment transition-colors">
+            <svg class="w-4 h-4 group-hover:-translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 19l-7-7 7-7"/>
             </svg>
-            <div class="text-left">
-              <p class="text-xs text-cream/40 uppercase tracking-widest">Previous</p>
-              <p class="font-serif text-sm">{prevEvent.title}</p>
-            </div>
+            <span class="font-serif font-light text-xs">{prevEvent.title}</span>
           </a>
         ) : <div />}
 
-        <a href="/events" class="text-gold text-xs uppercase tracking-widest hover:text-cream transition-colors">
+        <a href="/events" class="font-sans text-[0.6rem] tracking-[0.25em] uppercase text-gold/60 hover:text-gold transition-colors">
           All Events
         </a>
 
         {nextEvent ? (
-          <a href={`/events/${nextEvent.slug}`} class="group flex items-center gap-3 text-cream/70 hover:text-cream transition-colors">
-            <div class="text-right">
-              <p class="text-xs text-cream/40 uppercase tracking-widest">Next</p>
-              <p class="font-serif text-sm">{nextEvent.title}</p>
-            </div>
-            <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+          <a href={`/events/${nextEvent.slug}`} class="group flex items-center gap-3 text-parchment/50 hover:text-parchment transition-colors">
+            <span class="font-serif font-light text-xs">{nextEvent.title}</span>
+            <svg class="w-4 h-4 group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 5l7 7-7 7"/>
             </svg>
           </a>
         ) : <div />}
@@ -114,18 +108,18 @@ const nextEvent = currentIndex < events.length - 1 ? events[currentIndex + 1] : 
 </BaseLayout>
 
 <style>
-  .vintage-divider {
+  .divider-gold {
     display: flex;
     align-items: center;
-    gap: 1rem;
-    margin: 1.5rem 0;
+    gap: 0.75rem;
+    margin: 1rem auto;
   }
-  .vintage-divider::before,
-  .vintage-divider::after {
+  .divider-gold::before,
+  .divider-gold::after {
     content: '';
     flex: 1;
     height: 1px;
-    background: #C9A84C;
-    opacity: 0.5;
+    background: #A8874A;
+    opacity: 0.4;
   }
 </style>

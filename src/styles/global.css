@@ -6,7 +6,11 @@
 
 @layer base {
   html { scroll-behavior: smooth; }
-  body { @apply bg-parchment text-navy font-sans; }
+  body {
+    background-color: #F5EDD6;
+    color: #1A3A5C;
+    font-family: "Lato", system-ui, sans-serif;
+  }
 }
 
 @layer components {

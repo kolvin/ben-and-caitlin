@@ -62,7 +62,7 @@ export const events: Event[] = [
     time: '3:00 PM',
     venue: 'The Reefs',
     address: '56 South Shore Rd, Southampton, Bermuda SN 02',
-    description: 'The day we\'ve all been waiting for! Join Ben & Caitlin as they say their vows at the breathtaking Reefs resort, perched on the cliffs above the turquoise South Shore.',
+    description: 'The day we\'ve all been waiting for! Join JBen & JCaitlin as they say their vows at the breathtaking Reefs resort, perched on the cliffs above the turquoise South Shore.',
     image: '/images/event-wedding.png',
     slug: 'wedding',
   },

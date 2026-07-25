@@ -6,8 +6,8 @@ interface Props {
   navLight?: boolean;
 }
 const {
-  title = 'JBen & JCaitlin — Bermuda, June 2027',
-  description = 'Join us to celebrate the wedding of JBen & JCaitlin at The Reefs, Bermuda on Saturday 5 June 2027.',
+  title = 'Ben & Caitlin — Bermuda, June 2027',
+  description = 'Join us to celebrate the wedding of Ben & Caitlin at The Reefs, Bermuda on Saturday 5 June 2027.',
   navLight = false,
 } = Astro.props;
 
@@ -16,9 +16,8 @@ const navLinks = [
   { href: '/events', label: 'Events' },
   { href: '/flights', label: 'Flights' },
   { href: '/accommodation', label: 'Accommodation' },
-  { href: '/things-to-do', label: 'Guide' },
   { href: '/transport', label: 'Transport' },
-  { href: '/food-and-drink', label: 'Food & Drink' },
+  { href: '/faq', label: 'FAQs' },
   { href: '/rsvp', label: 'RSVP' },
 ];
 
@@ -47,7 +46,7 @@ const currentPath = Astro.url.pathname;
         <div class="flex items-center justify-between h-12">
           <!-- Logo -->
           <a href="/" class="font-sans text-xs tracking-[0.25em] uppercase text-navy hover:opacity-60 transition-opacity">
-            JBen &amp; JCaitlin
+            Ben &amp; Caitlin
           </a>
 
           <!-- Desktop links -->
@@ -87,7 +86,7 @@ const currentPath = Astro.url.pathname;
 
     <!-- Footer -->
     <footer class="text-center py-12 px-4" style="background-color: #1A3A5C;">
-      <p class="font-script text-3xl mb-2" style="color: #F5EDD6;">JBen & JCaitlin</p>
+      <p class="font-script text-3xl mb-2" style="color: #F5EDD6;">Ben & Caitlin</p>
       <p class="text-xs tracking-[0.3em] uppercase mb-4" style="color: rgba(168,135,74,0.8);">5 June 2027 · The Reefs, Bermuda</p>
       <p class="text-xs" style="color: rgba(245,237,214,0.3);">Made with love ♡</p>
     </footer>

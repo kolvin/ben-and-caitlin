@@ -16,7 +16,7 @@ const nextEvent = currentIndex < events.length - 1 ? events[currentIndex + 1] : 
 ---
 
 <BaseLayout
-  title={`${event.title} — JBen & JCaitlin · Bermuda 2027`}
+  title={`${event.title} — Ben & Caitlin · Bermuda 2027`}
   description={event.description}
 >
   <div class="pt-12">
@@ -67,7 +67,7 @@ const nextEvent = currentIndex < events.length - 1 ? events[currentIndex + 1] : 
               </div>
             </div>
 
-            <p class="font-serif font-light text-navy/70 text-sm leading-relaxed mb-8 max-w-sm mx-auto md:mx-0">{event.description}</p>
+            <p class="font-serif font-light text-navy/70 text-sm leading-relaxed mb-8 max-w-sm mx-auto md:mx-0" set:html={event.description} />
 
             <a href={`/rsvp?event=${event.id}`} class="btn-primary text-[0.65rem]">
               RSVP for This Event

@@ -16,7 +16,7 @@ const nextEvent = currentIndex < events.length - 1 ? events[currentIndex + 1] : 
 ---
 
 <BaseLayout
-  title={`${event.title} — JBen & JCaitlin · Bermuda 2027`}
+  title={`${event.title} — Ben & Caitlin · Bermuda 2027`}
   description={event.description}
 >
   <div class="pt-12">
@@ -43,31 +43,31 @@ const nextEvent = currentIndex < events.length - 1 ? events[currentIndex + 1] : 
 
           <!-- Details -->
           <div class="text-center md:text-left">
-            <p class="font-sans text-navy/50 text-[0.6rem] tracking-[0.35em] uppercase mb-4">Wedding Week 2027</p>
+            <p class="font-sans text-navy font-bold text-sm tracking-[0.25em] uppercase mb-4">Wedding Week 2027</p>
             <h1 class="font-script text-6xl text-navy mb-2">{event.title}</h1>
             <div class="divider-gold max-w-[160px] mx-auto md:mx-0"></div>
 
-            <div class="space-y-4 mb-8 font-serif font-light text-sm">
+            <div class="space-y-4 mb-8 font-serif text-lg">
               <div class="flex gap-4 justify-center md:justify-start">
-                <span class="text-gold/70 text-xs tracking-[0.2em] uppercase w-14 shrink-0 pt-0.5">Date</span>
+                <span class="font-sans text-navy font-bold text-xs tracking-[0.2em] uppercase w-20 shrink-0 pt-1">Date</span>
                 <span class="text-navy">{event.date}</span>
               </div>
               {event.time !== 'TBC' && (
                 <div class="flex gap-4 justify-center md:justify-start">
-                  <span class="text-gold/70 text-xs tracking-[0.2em] uppercase w-14 shrink-0 pt-0.5">Time</span>
+                  <span class="font-sans text-navy font-bold text-xs tracking-[0.2em] uppercase w-20 shrink-0 pt-1">Time</span>
                   <span class="text-navy">{event.time}</span>
                 </div>
               )}
               <div class="flex gap-4 justify-center md:justify-start">
-                <span class="text-gold/70 text-xs tracking-[0.2em] uppercase w-14 shrink-0 pt-0.5">Venue</span>
+                <span class="font-sans text-navy font-bold text-xs tracking-[0.2em] uppercase w-20 shrink-0 pt-1">Venue</span>
                 <span class="text-navy">
                   {event.venue}
-                  {event.address !== 'Bermuda' && <span class="block text-navy/50 text-xs mt-0.5">{event.address}</span>}
+                  {event.address !== 'Bermuda' && <span class="block text-navy/70 text-base mt-0.5">{event.address}</span>}
                 </span>
               </div>
             </div>
 
-            <p class="font-serif font-light text-navy/70 text-sm leading-relaxed mb-8 max-w-sm mx-auto md:mx-0">{event.description}</p>
+            <p class="font-serif text-navy text-lg leading-relaxed mb-8 max-w-md mx-auto md:mx-0" set:html={event.description} />
 
             <a href={`/rsvp?event=${event.id}`} class="btn-primary text-[0.65rem]">
               RSVP for This Event

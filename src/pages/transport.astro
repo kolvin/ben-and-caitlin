@@ -3,32 +3,67 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import InfoPage from '../components/InfoPage.astro';
 ---
 
-<BaseLayout title="Transport — JBen & JCaitlin · Bermuda 2027" description="How to get around Bermuda during JBen & JCaitlin's wedding week.">
+<BaseLayout title="Transport — Ben & Caitlin · Bermuda 2027" description="How to get around Bermuda during Ben & Caitlin's wedding week.">
   <InfoPage
     heading="Getting Around"
     subheading="On-Island Transport"
-    intro="Bermuda is small — about 21 miles long — but there's no car rental for tourists. The good news: taxis, scooters, ferries, and buses make it easy to explore."
+    intro="Visitors cannot hire conventional rental cars, but there are plenty of other options including buses, ferries, scooters, taxis and electric micro cars."
     linkCards={[
-      { title: 'Scooter Rental', description: 'The quintessential Bermuda experience. Scooters (and two-seat electric cycles) can be rented from most hotels or dedicated shops. Highly recommended.' },
-      { title: 'Taxis', description: 'Widely available, official BDA taxis are metered and reliable. The app "Bermuda Taxi" makes booking easy. Good for evenings when you want a drink.' },
-      { title: 'Ferry Service', description: 'Bermuda has a lovely ferry system connecting Hamilton to the Royal Dockyard, Somerset, and St. George\'s. Scenic and great value.' },
-      { title: 'Public Bus', description: 'The public bus network covers most of the island and is very cheap. Takes longer but is a great way to see the island like a local.' },
+      { title: 'Shorelink (Official Bus & Ferry App)', description: 'ShoreLink', url: 'https://forms.gov.bm/Shorelink' },
+      { title: 'Hitch Taxi App', description: "HITCH | Bermuda's Best Transportation App", url: 'https://hitch.bm/' },
+      { title: 'Ride Bermuda App', description: 'Island Taxi', url: 'https://ridebermuda.com/' },
+      { title: 'Current Vehicles', description: 'Island Taxi', url: 'https://ridebermuda.com/' },
+      { title: 'Bermuda Rental Car', description: 'Bermuda Rental Car', url: 'https://bermudarentalcar.com/' },
+      { title: 'Bermuda Public Transport', description: 'Bus routes and maps | Government of Bermuda - Government of Bermuda', url: 'https://www.gov.bm/bus-routes-and-maps' },
     ]}
   >
     <div class="prose prose-lg max-w-none font-sans text-navy/80 space-y-6">
-      <div class="bg-cream border-l-4 border-gold p-6 mb-8">
-        <p class="font-serif text-xl text-navy mb-2">🛵 Top tip: Get a scooter</p>
-        <p>Renting a scooter or e-cycle is the best way to explore Bermuda at your own pace. Remember — you'll be driving on the <strong>left</strong>, and the speed limit is 35 km/h. Helmets are compulsory and included with rental.</p>
-      </div>
-      <h2 class="font-serif text-3xl text-navy">Scooters & E-Cycles</h2>
-      <p>Most hotels have scooter rental on-site, or you can book through dedicated rental shops like Oleander Cycles. Two-seat scooters are available if you'd prefer to ride with a partner. Electric pedal-assist cycles are also available for a more leisurely option.</p>
       <h2 class="font-serif text-3xl text-navy">Taxis</h2>
-      <p>Official blue taxis are metered and regulated. Download the Bermuda Taxi app for easy booking. Expect to pay around $10–20 for most journeys within the main tourist areas. Essential for evenings out when you don't want to scooter.</p>
-      <h2 class="font-serif text-3xl text-navy">Ferry</h2>
-      <p>The Bermuda ferry is a highlight in itself. The main routes connect Hamilton (the capital) with the Royal Dockyard and Somerset. Scenic, cheap, and a wonderful way to see the island from the water.</p>
-      <h2 class="font-serif text-3xl text-navy">Bus</h2>
-      <p>Bermuda's public buses are reliable and cover most of the island. A daily or weekly pass is excellent value. Buses run from Hamilton bus terminal to all major areas.</p>
-      <p class="text-navy/50 text-sm italic">✏️ Ben will add specific rental recommendations and event transport details here.</p>
+      <p>Taxis are widely available throughout Bermuda and are the easiest option if you're travelling with luggage or heading to one of the wedding events.</p>
+      <p>A taxi is the only option from the airport.</p>
+      <p>Unlike many countries, Bermuda doesn't have Uber. Instead, we recommend using one of the local taxi apps:</p>
+      <ul>
+        <li>Hitch – Our preferred option. Similar to Uber, allowing you to book and pay through the app.</li>
+        <li>Ride Bermuda – Another popular taxi booking app.</li>
+      </ul>
+      <p>You can also hail taxis at designated taxi ranks – outside the airport, Hamilton Front Street/Ferry Terminal and major hotels.</p>
+
+      <h2 class="font-serif text-3xl text-navy">Buses</h2>
+      <p>Bermuda's iconic pink buses run the length of the island and are an inexpensive and reliable way to travel.</p>
+      <p>Single journeys cost $3.50–$5.00, depending on distance.</p>
+      <p>Unlimited 1, 2, 3, 4 and 7-day transport passes are available and include both buses and ferries.</p>
+      <h3 class="font-serif text-xl text-navy">Top Tips</h3>
+      <ul>
+        <li>Download the Shorelink app before you travel.</li>
+        <li>Alternatively, you can pick up bus tokens at the central bus terminal in Hamilton.</li>
+        <li>Bus stops with pink poles travel towards Hamilton; blue poles travel away from Hamilton.</li>
+        <li>If paying by cash, drivers only accept exact change.</li>
+      </ul>
+
+      <h2 class="font-serif text-3xl text-navy">Scooter Rental</h2>
+      <p>Hiring a scooter is the most cost-effective way of exploring the island at your own pace. Daily rental prices typically start from around $35–$50.</p>
+      <p>A lot of the scooters have seen better days but are perfectly serviceable.</p>
+      <p>Popular rental companies include:</p>
+      <ul>
+        <li>Elbow Beach Cycles</li>
+        <li>Oleander Cycles</li>
+        <li>Scooter Mart</li>
+        <li>Smatt's Cycle Livery</li>
+      </ul>
+
+      <h2 class="font-serif text-3xl text-navy">Ferries</h2>
+      <p>The ferry network is one of the highlights of visiting Bermuda and offers some of the best views on the island. Services connect Hamilton with Dockyard, Paget, Warwick, Sandys and St George's.</p>
+      <p>Your public transport pass is valid on both buses and ferries, making it easy to mix the two.</p>
+      <p>If you're staying in Paget or Sandys, the ferry is often quicker—and certainly more scenic—than travelling by road.</p>
+
+      <h2 class="font-serif text-3xl text-navy">Electric Microcars</h2>
+      <p>Although you can't rent a traditional car in Bermuda, visitors can hire small two-seat electric microcars. These are enclosed, air-conditioned and drive much like a normal car, making them a great alternative if you're not comfortable on a scooter.</p>
+      <p>Popular rental companies include:</p>
+      <ul>
+        <li>Current Vehicles</li>
+        <li>Bermuda Rental Car</li>
+      </ul>
+      <p>Our advice: If there are two of you travelling together, an electric microcar is one of the easiest and most enjoyable ways to explore Bermuda. Just bear in mind they're designed for two passengers only, so they're not suitable for larger families or groups.</p>
     </div>
   </InfoPage>
 </BaseLayout>

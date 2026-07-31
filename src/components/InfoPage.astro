@@ -19,10 +19,10 @@ const { heading, subheading, intro, linkCards = [] } = Astro.props;
     class="py-20 text-center px-4"
     style="background-image: url('/images/wall-only.png'); background-size: cover; background-position: center;"
   >
-    {subheading && <p class="font-sans text-navy/50 text-[0.6rem] tracking-[0.35em] uppercase mb-4">{subheading}</p>}
+    {subheading && <p class="font-sans text-navy font-bold text-sm tracking-[0.25em] uppercase mb-4">{subheading}</p>}
     <h1 class="font-script text-6xl md:text-7xl text-navy mb-2">{heading}</h1>
     <div class="divider-gold max-w-[160px] mx-auto"></div>
-    <p class="font-serif font-light text-navy/60 text-sm max-w-xl mx-auto leading-relaxed">{intro}</p>
+    <h2 class="font-serif text-navy text-xl md:text-2xl max-w-2xl mx-auto leading-snug">{intro}</h2>
   </section>
 
   <!-- Body -->
@@ -47,6 +47,53 @@ const { heading, subheading, intro, linkCards = [] } = Astro.props;
     )}
   </section>
 </div>
+
+<script>
+  function slugify(text: string) {
+    return text
+      .toLowerCase()
+      .trim()
+      .replace(/[^\w\s-]/g, '')
+      .replace(/[\s_]+/g, '-')
+      .replace(/-+/g, '-')
+      .replace(/^-+|-+$/g, '');
+  }
+
+  const usedSlugs = new Set<string>();
+  const headings = document.querySelectorAll<HTMLElement>('.prose h2, .prose h3');
+
+  headings.forEach((heading) => {
+    const base = slugify(heading.textContent || '');
+    if (!base) return;
+    let slug = base;
+    let n = 2;
+    while (usedSlugs.has(slug)) slug = `${base}-${n++}`;
+    usedSlugs.add(slug);
+
+    heading.id = slug;
+    heading.classList.add('group', 'scroll-mt-28');
+
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.setAttribute('aria-label', 'Copy link to this section');
+    btn.className = 'relative inline-flex items-center justify-center w-5 h-5 ml-2 align-middle opacity-0 group-hover:opacity-100 focus:opacity-100 transition-opacity duration-200 text-gold hover:text-navy bg-transparent border-0 p-0 cursor-pointer';
+    btn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757M10.81 15.312a4.5 4.5 0 01-1.242-7.244l4.5-4.5a4.5 4.5 0 016.364 6.364l-1.757 1.757"/></svg>';
+
+    btn.addEventListener('click', () => {
+      const url = `${location.origin}${location.pathname}#${slug}`;
+      history.replaceState(null, '', `#${slug}`);
+      navigator.clipboard?.writeText(url).catch(() => {});
+
+      const tip = document.createElement('span');
+      tip.textContent = 'Copied!';
+      tip.className = 'absolute -top-7 left-1/2 -translate-x-1/2 bg-navy text-parchment text-[0.6rem] tracking-wide uppercase px-2 py-1 whitespace-nowrap pointer-events-none rounded';
+      btn.appendChild(tip);
+      setTimeout(() => tip.remove(), 1200);
+    });
+
+    heading.appendChild(btn);
+  });
+</script>
 
 <style>
   .divider-gold {

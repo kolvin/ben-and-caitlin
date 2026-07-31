@@ -3,23 +3,26 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import { events } from '../data/events';
 ---
 
-<BaseLayout title="RSVP — JBen & JCaitlin · Bermuda 2027">
+<BaseLayout title="RSVP — Ben & Caitlin · Bermuda 2027">
   <div class="pt-12">
     <!-- Header -->
     <section
       class="py-20 text-center px-4"
       style="background-image: url('/images/wall-only.png'); background-size: cover;"
     >
-      <p class="font-sans text-navy/50 text-[0.6rem] tracking-[0.35em] uppercase mb-4">Please reply by 1 March 2027</p>
+      <p class="font-sans text-navy font-bold text-sm tracking-[0.25em] uppercase mb-4">Firm RSVP by 1 December 2026</p>
       <h1 class="font-script text-6xl md:text-7xl text-navy mb-2">RSVP</h1>
       <div class="divider-gold max-w-[160px] mx-auto"></div>
-      <p class="font-serif font-light text-navy/60 text-sm max-w-md mx-auto">
-        We'd love to celebrate every moment with you. Let us know which events you can join us for.
-      </p>
+      <h2 class="font-serif text-navy text-lg md:text-xl max-w-md mx-auto leading-snug">
+        If you already have a good idea of whether you'll be joining us, please let us know by 1st September 2026 — it really helps us start planning. For a firm answer, we'd love your final RSVP by 1st December 2026, just after the Black Friday sales, so you'll have had a chance to grab a good fare before committing.
+      </h2>
     </section>
 
     <!-- Form -->
     <section class="max-w-xl mx-auto px-6 py-16">
+      <div class="bg-cream border-l-4 border-gold p-6 mb-10">
+        <p class="font-serif font-light text-navy/80 text-sm leading-relaxed">Please do try to get this back to us by the deadline if you can — The Reefs has a limited number of spaces for our day and we want to make sure we can fit in everyone who'd like to join us.</p>
+      </div>
       <form
         name="rsvp"
         method="POST"
@@ -54,10 +57,14 @@ import { events } from '../data/events';
             <label class="block font-sans text-[0.6rem] tracking-[0.25em] uppercase text-navy/60 mb-3">
               Attending the wedding? <span class="text-coral">*</span>
             </label>
-            <div class="flex gap-8">
+            <div class="flex flex-wrap gap-x-8 gap-y-3">
               <label class="flex items-center gap-2 cursor-pointer group">
                 <input type="radio" name="attending_wedding" value="yes" required class="accent-navy w-4 h-4" />
                 <span class="font-serif font-light text-sm text-navy/80">Yes, I'll be there!</span>
+              </label>
+              <label class="flex items-center gap-2 cursor-pointer">
+                <input type="radio" name="attending_wedding" value="keen" class="accent-navy w-4 h-4" />
+                <span class="font-serif font-light text-sm text-navy/80">Keen to attend and will confirm asap</span>
               </label>
               <label class="flex items-center gap-2 cursor-pointer">
                 <input type="radio" name="attending_wedding" value="no" class="accent-navy w-4 h-4" />
@@ -96,7 +103,7 @@ import { events } from '../data/events';
             <label for="message" class="block font-sans text-[0.6rem] tracking-[0.25em] uppercase text-navy/60 mb-2">
               Message <span class="text-navy/30 normal-case tracking-normal font-sans text-[0.6rem]">(optional)</span>
             </label>
-            <textarea id="message" name="message" rows="3" placeholder="Share a message for JBen & JCaitlin..."
+            <textarea id="message" name="message" rows="3" placeholder="Share a message for Ben & Caitlin..."
               class="w-full border-b border-navy/20 bg-transparent text-navy font-serif font-light text-sm pb-2 pt-1 focus:outline-none focus:border-navy/60 transition-colors placeholder:text-navy/20 resize-none"></textarea>
           </div>
 

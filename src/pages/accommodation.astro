@@ -3,34 +3,105 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import InfoPage from '../components/InfoPage.astro';
 ---
 
-<BaseLayout title="Accommodation — JBen & JCaitlin · Bermuda 2027" description="Where to stay in Bermuda for JBen & JCaitlin's wedding week.">
+<BaseLayout title="Accommodation — Ben & Caitlin · Bermuda 2027" description="Where to stay in Bermuda for Ben & Caitlin's wedding week.">
   <InfoPage
     heading="Where to Stay"
     subheading="Accommodation in Bermuda"
-    intro="We have a block of rooms reserved at The Reefs for wedding guests. Alternatives are available across the island for different budgets."
+    intro="Accommodation in Bermuda is expensive by almost any standard. For most guests, we think the best value will be either a guest house or an Airbnb, both of which offer excellent accommodation at a fraction of the cost of Bermuda's luxury resorts."
     linkCards={[
-      { title: 'The Reefs Resort & Club', description: 'Our wedding venue — rooms and cottages perched on the cliffs above the South Shore. The most magical place to stay. **Block booking details to follow.**', url: 'https://www.thereefs.com' },
-      { title: 'Elbow Beach Bermuda', description: 'A classic Bermuda resort on one of the island\'s most famous pink-sand beaches. Walking distance to several of our events.', url: 'https://www.elbowbeachbermuda.com' },
-      { title: 'Cambridge Beaches Resort', description: 'A beautiful cottage colony resort in Sandys Parish. More secluded, with private beach access and a spa.', url: 'https://www.cambridgebeaches.com' },
-      { title: 'Airbnb Bermuda', description: 'Cottages and apartments across the island, great for groups. Paget and Warwick parishes are ideal locations for the week.', url: 'https://www.airbnb.com' },
+      { title: 'Airbnb', description: 'Browse Airbnb listings across Bermuda.', url: 'https://www.airbnb.co.uk/s/Bermuda' },
+      { title: 'VRBO', description: 'Browse holiday rentals across Bermuda.', url: 'https://www.vrbo.com/en-gb' },
+      { title: 'Booking.com – Bermuda', description: 'Compare hotel prices across the island.', url: 'https://www.booking.com/region/bm.en-gb.html' },
+      { title: 'Bermuda Tourism – Places to Stay', description: 'The official tourism board\'s accommodation guide.', url: 'https://www.gotobermuda.com/places-to-stay' },
     ]}
   >
     <div class="prose prose-lg max-w-none font-sans text-navy/80 space-y-6">
-      <div class="bg-cream border-l-4 border-coral p-6 mb-8">
-        <p class="font-serif text-xl text-navy mb-2">🏨 Room block</p>
-        <p>We are working on securing a block of rooms at The Reefs for guests. Details and a booking code will be shared here once confirmed — <strong>watch this space!</strong></p>
-      </div>
-      <h2 class="font-serif text-3xl text-navy">Staying at The Reefs</h2>
-      <p>The Reefs is a boutique clifftop resort with its own private beach, pool, and restaurant. Staying on-site means you'll be right at the heart of the celebrations and won't need to worry about transport to the wedding.</p>
-      <h2 class="font-serif text-3xl text-navy">Other options</h2>
-      <p>Bermuda has a range of accommodation options from large resort hotels to charming cottage colonies and Airbnb rentals. Most of the island is within 30–45 minutes by scooter or taxi, so you have plenty of flexibility.</p>
-      <h2 class="font-serif text-3xl text-navy">Booking tips</h2>
+      <h2 class="font-serif text-3xl text-navy">When to Book</h2>
+      <p>The more affordable accommodation tends to book up early so we recommend reserving your accommodation as soon as possible.</p>
+
+      <h2 class="font-serif text-3xl text-navy">Where Should I Stay?</h2>
+      <p>Our wedding will be held at The Reefs Resort & Club in Southampton, on Bermuda's South Shore.</p>
+      <p>Although Bermuda is only 22 miles (35 km) long, travelling across the island can take 45–60 minutes, so location is worth considering.</p>
       <ul>
-        <li>Book early — summer in Bermuda is busy and rooms fill up fast.</li>
-        <li>If you're a group, a shared cottage or Airbnb can be great value and fun.</li>
-        <li>Ask Ben for a recommendation if you're not sure what suits you best.</li>
+        <li><strong>Paget</strong> – Where we live! A peaceful, central parish that's perfectly positioned between Hamilton and the South Shore. It will also be the location of both our Beach Party and Garden Party, making it an especially convenient place to stay if you're planning to join us for the full week of celebrations.</li>
+        <li><strong>Southampton & Warwick</strong> – Home to Bermuda's famous pink sand beaches and the location of The Reefs, where our wedding will be held. A great choice if you'd like to spend plenty of time by the beach.</li>
+        <li><strong>City of Hamilton</strong> – Bermuda's capital and the island's hub for restaurants, bars, cafés and shopping. Around 20 minutes by taxi to The Reefs and a great option if you'd like to enjoy Bermuda's nightlife.</li>
+        <li><strong>Pembroke</strong> – Surrounding Hamilton, Pembroke offers many guest houses and holiday rentals, often at slightly better value than staying in the city centre while still being within easy reach of its amenities.</li>
+        <li><strong>Smith's Parish</strong> – A peaceful residential area with beautiful coastline, excellent holiday rentals and easy access to both Hamilton and the eastern end of the island. Ideal if you're looking for somewhere a little quieter.</li>
+        <li><strong>Devonshire</strong> – A central parish with a good selection of guest houses and Airbnbs. Well located for visiting both Hamilton and the South Shore, making it an excellent all-round base.</li>
       </ul>
-      <p class="text-navy/50 text-sm italic">✏️ Ben will add the room block booking link and more specific recommendations here.</p>
+      <p>Sandys, Hamilton Parish and St George's are further from the majority of our wedding events, so you'll spend a little more time travelling if you choose to stay there.</p>
+
+      <h2 class="font-serif text-3xl text-navy">Guest Houses / Apartments</h2>
+      <p>If you're looking for the best balance between price, comfort and location, we'd highly recommend considering a guest house or apartments.</p>
+      <p>Most are family-run, offering spacious rooms or self-contained apartments with kitchenettes, pools and gardens. They're typically much better value than hotels, while still providing an authentic Bermudian experience.</p>
+      <p>Typical prices in June may be around £200+ per night.</p>
+
+      <h2 class="font-serif text-3xl text-navy">Popular Guest Houses / Apartments</h2>
+      <p>Bermuda has a fantastic selection of independently-owned guest houses, boutique inns and self-catering apartments. They are often significantly better value than the larger resorts and many offer kitchen facilities, helping to keep the overall cost of your trip down.</p>
+      <p>Some well options include:</p>
+
+      <h3 class="font-serif text-xl text-navy">City of Hamilton & Pembroke</h3>
+      <ul>
+        <li>Rosemont Guest Suites – Apartment-style accommodation overlooking Hamilton.</li>
+        <li>Edgehill Manor – A long-established favourite within walking distance of Hamilton.</li>
+        <li>The Oxford House – A charming boutique property just outside the city centre.</li>
+        <li>Kingston House Bed & Breakfast – A welcoming B&B close to Hamilton.</li>
+        <li>Cavendish Heights Suites – Modern suites in a quiet Pembroke location.</li>
+      </ul>
+
+      <h3 class="font-serif text-xl text-navy">Paget</h3>
+      <ul>
+        <li>Greenbank Guest House – One of Bermuda's best-known guest houses, overlooking Hamilton Harbour with easy ferry access to Hamilton.</li>
+        <li>Paraquet Apartments are very practical—good value, central and close to Hamilton.</li>
+        <li>Salt Kettle House – Beautiful boutique accommodation overlooking Salt Kettle Bay.</li>
+        <li>Erith Guest House – A small guest house in a quiet residential setting.</li>
+      </ul>
+
+      <h3 class="font-serif text-xl text-navy">Southampton & Warwick</h3>
+      <ul>
+        <li>Clairfont Guest Apartments – Spacious self-catering apartments in a convenient Warwick location.</li>
+        <li>Blue Horizons Guest House – A simple, affordable option on the South Shore.</li>
+        <li>The Sandpiper Guest Apartments – A popular choice close to Horseshoe Bay and the South Shore beaches.</li>
+        <li>Green's Guest House – A family-run guest house in Southampton.</li>
+      </ul>
+
+      <h2 class="font-serif text-3xl text-navy">Airbnb & Holiday Rentals</h2>
+      <p>Airbnb is another excellent option, particularly for families or groups travelling together.</p>
+
+      <h2 class="font-serif text-3xl text-navy">Hotels</h2>
+      <p>If you're looking for a traditional hotel or resort, Bermuda has some fantastic options. As with accommodation generally, prices are considerably higher than most destinations, particularly in June.</p>
+
+      <h3 class="font-serif text-xl text-navy">Best Value (from approximately £350+ per night)</h3>
+      <p>Ideal if you're looking for the best value without compromising on comfort.</p>
+      <ul>
+        <li>Royal Palms Hotel</li>
+        <li>Coco Reef Resort</li>
+        <li>Hillcrest Boutique Hotel</li>
+        <li>St George's Club</li>
+      </ul>
+
+      <h3 class="font-serif text-xl text-navy">Mid-Range (approximately £450+ per night)</h3>
+      <p>Offering a great balance of facilities, location and value.</p>
+      <ul>
+        <li>The Reefs Resort & Club (our wedding venue)</li>
+        <li>Grotto Bay Beach Resort & Spa</li>
+        <li>Rosedon Hotel</li>
+        <li>Newstead Belmont Hills Golf Resort & Spa</li>
+        <li>Pompano Beach Club</li>
+      </ul>
+
+      <h3 class="font-serif text-xl text-navy">Luxury (approximately £700+ per night)</h3>
+      <p>Some of Bermuda's most iconic resorts, offering spectacular beachfront locations, exceptional dining and first-class service.</p>
+      <ul>
+        <li>Hamilton Princess & Beach Club</li>
+        <li>Cambridge Beaches Resort & Spa</li>
+        <li>Azura Bermuda</li>
+        <li>The Loren at Pink Beach</li>
+        <li>The St. Regis Bermuda Resort</li>
+        <li>Rosewood Bermuda</li>
+      </ul>
+      <p>Prices are indicative only and can vary significantly depending on room type and availability. We'd recommend comparing prices on the hotel's own website as well as Booking.com and Expedia before booking.</p>
     </div>
   </InfoPage>
 </BaseLayout>

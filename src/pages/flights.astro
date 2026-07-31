@@ -3,30 +3,54 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import InfoPage from '../components/InfoPage.astro';
 ---
 
-<BaseLayout title="Flights — JBen & JCaitlin · Bermuda 2027" description="How to get to Bermuda for JBen & JCaitlin's wedding in June 2027.">
+<BaseLayout title="Flights — Ben & Caitlin · Bermuda 2027" description="How to get to Bermuda for Ben & Caitlin's wedding in June 2027.">
   <InfoPage
     heading="Getting There"
     subheading="Flights to Bermuda"
-    intro="L.F. Wade International Airport (BDA) is Bermuda's only airport. Flights are available from the US East Coast, UK, and Canada."
+    intro="Getting to Bermuda is surprisingly straightforward. British Airways operates the only direct flight from the UK to Bermuda, with one non-stop flight each day from London Heathrow (LHR) to Bermuda L.F. Wade International Airport (BDA)."
     linkCards={[
-      { title: 'British Airways', description: 'Direct flights from London Heathrow to Bermuda. Typically 8–9 hours. Check seasonal schedules for June 2027.', url: 'https://www.britishairways.com' },
-      { title: 'American Airlines', description: 'Frequent daily service from New York JFK, Miami, and Charlotte. Great options if connecting from the US.', url: 'https://www.aa.com' },
-      { title: 'Delta Air Lines', description: 'Flights from New York JFK and Atlanta. Often competitive on price from the US East Coast.', url: 'https://www.delta.com' },
-      { title: 'United Airlines', description: 'Service from Newark, Boston, and Washington Dulles. Good frequency from the northeast US.', url: 'https://www.united.com' },
+      { title: 'British Airways Flights to Bermuda', description: 'Search and book the direct London Heathrow to Bermuda route.', url: 'https://www.britishairways.com/nx/b/airselect/en/gbr/book/search/?trip=round&arrivalDate=2027-06-06&departureDate=2027-05-30&from=LHR&to=BDA&travelClass=economy&adults=1&youngAdults=0&children=0&infants=0&bound=outbound' },
+      { title: 'British Airways Sale Page', description: 'Check for current British Airways sales and fare offers.', url: 'https://www.britishairways.com/content/offers/sale' },
+      { title: 'Bermuda Online Visitor Form', description: 'Complete your arrival card online before you travel.', url: 'https://bermudaarrivalcard.com/' },
+      { title: 'British Airways Low Fare Finder', description: 'Track fares across dates to find the best price.', url: 'https://www.britishairways.com/travel/low-price-finder/public/en_gb' },
+      { title: 'ESTA Application', description: 'Required if you are flying via the United States.', url: 'https://esta.eta.travel/apply' },
     ]}
   >
     <div class="prose prose-lg max-w-none font-sans text-navy/80 space-y-6">
-      <div class="bg-cream border-l-4 border-gold p-6 mb-8">
-        <p class="font-serif text-xl text-navy mb-2">✈️ Top tip</p>
-        <p>Book flights early — Bermuda is a popular summer destination and seats fill up fast. We'd recommend aiming to arrive <strong>Wednesday 1st or 2nd June</strong> to make the most of the week.</p>
-      </div>
-      <h2 class="font-serif text-3xl text-navy">Flying from the UK</h2>
-      <p>British Airways operates direct flights from London Heathrow. The flight takes around 8–9 hours. Check for the best availability in May/June 2027.</p>
-      <h2 class="font-serif text-3xl text-navy">Flying from the US</h2>
-      <p>Bermuda is well connected from the US East Coast. New York, Boston, Philadelphia, Washington, Miami, and Atlanta all have regular service. Flight time is 2–3 hours from the northeast US.</p>
-      <h2 class="font-serif text-3xl text-navy">Flying from Canada</h2>
-      <p>WestJet and Air Canada offer service from Toronto. Flight time is approximately 3 hours.</p>
-      <p class="text-navy/50 text-sm italic">✏️ Ben will update this page with specific flight recommendations and any group booking details.</p>
+      <h2 class="font-serif text-3xl text-navy">British Airways</h2>
+      <p>The outbound flight usually departs Heathrow in the mid-afternoon (around 2:30–3:00pm) and arrives in Bermuda at approximately 6:00pm local time. The return flight leaves Bermuda at around 7:45pm, flying overnight and arriving back at Heathrow at approximately 6:45am the following morning.</p>
+      <p>Bermuda is 4 hours behind the UK in early June, helping to minimise jet lag.</p>
+
+      <h2 class="font-serif text-3xl text-navy">Typical Cost</h2>
+      <p>Airfares to Bermuda vary considerably depending on when you book. As a guide, we'd generally expect the following for economy:</p>
+      <ul>
+        <li>Lowest fares: from around £900 pp return (usually only available during sales or quieter booking periods).</li>
+        <li>Typical fares: around £1,000–£1,200 pp return.</li>
+      </ul>
+      <p>At the time of writing, fares for June 2027 are towards the upper end of this range. This may simply reflect the initial release of tickets.</p>
+
+      <h2 class="font-serif text-3xl text-navy">When to Book</h2>
+      <p>British Airways usually runs sales each year, most commonly in January, late spring/early summer (May–June) and around Black Friday (November).</p>
+      <p>Our suggestion would be not to rush into booking at today's prices and keep an eye on fares over the coming months.</p>
+      <p>The direct Bermuda flight has a relatively small Economy cabin and only operates once a day so we would avoid waiting until the last minute in case prices go up or if is sold out.</p>
+      <p>We suggest using Google Flights to track prices for you.</p>
+
+      <h2 class="font-serif text-3xl text-navy">Travelling with infants</h2>
+      <p>Children under the age of 2 can usually travel as a lap infant (without their own seat), subject to British Airways' infant fare. Once a child reaches their 2nd birthday, they will require their own seat.</p>
+
+      <h2 class="font-serif text-3xl text-navy">Flying via the United States</h2>
+      <p>If you're looking to reduce the cost of your trip, flying via the United States can be much cheaper than taking the direct British Airways flight.</p>
+      <p>Several US airlines operate regular services to Bermuda from major East Coast hubs, making it easy to connect from London or other UK airports.</p>
+      <p>Popular routes include:</p>
+      <ul>
+        <li>New York (JFK) – John F. Kennedy International Airport – served by JetBlue Airways, Delta Air Lines and American Airlines</li>
+        <li>Boston (BOS) – Logan International Airport – served by JetBlue Airways and Delta Air Lines</li>
+        <li>Charlotte (CLT) – Charlotte Douglas International Airport – served by American Airlines</li>
+      </ul>
+
+      <h2 class="font-serif text-3xl text-navy">Immigration</h2>
+      <p>Bermuda is a British Overseas Territory so British Passport holders do not require a visa. You will just need to provide a completed arrival card to immigration when you arrive. These are available online at the <a href="https://bermudaarrivalcard.com/" target="_blank" rel="noopener noreferrer" class="underline hover:text-navy">Bermuda Online Visitor Form</a>. Hard copies are also handed out during the flight.</p>
+      <p>If flying via the United States then you will need an ESTA (even if you won't be leaving the airport).</p>
     </div>
   </InfoPage>
 </BaseLayout>

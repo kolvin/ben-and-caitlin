@@ -23,20 +23,13 @@ import { events } from '../data/events';
       <div class="bg-cream border-l-4 border-gold p-6 mb-10">
         <p class="font-serif font-light text-navy/80 text-sm leading-relaxed">Please do try to get this back to us by the deadline if you can — The Reefs has a limited number of spaces for our day and we want to make sure we can fit in everyone who'd like to join us.</p>
       </div>
-      <form
-        name="rsvp"
-        method="POST"
-        data-netlify="true"
-        netlify-honeypot="bot-field"
-        id="rsvp-form"
-      >
-        <input type="hidden" name="form-name" value="rsvp" />
+      <form name="rsvp" id="rsvp-form">
         <p class="hidden"><label>Don't fill this out: <input name="bot-field" /></label></p>
 
         <div class="space-y-8">
           <!-- Full Name -->
           <div>
-            <label for="name" class="block font-sans text-[0.6rem] tracking-[0.25em] uppercase text-navy/60 mb-2">
+            <label for="name" class="block font-sans text-xs tracking-[0.2em] uppercase text-navy/60 mb-2">
               Full Name <span class="text-coral">*</span>
             </label>
             <input type="text" id="name" name="name" required placeholder="Jane Smith"
@@ -45,16 +38,23 @@ import { events } from '../data/events';
 
           <!-- Email -->
           <div>
-            <label for="email" class="block font-sans text-[0.6rem] tracking-[0.25em] uppercase text-navy/60 mb-2">
+            <label for="email" class="block font-sans text-xs tracking-[0.2em] uppercase text-navy/60 mb-2">
               Email Address <span class="text-coral">*</span>
             </label>
-            <input type="email" id="email" name="email" required placeholder="jane@example.com"
-              class="w-full border-b border-navy/20 bg-transparent text-navy font-serif font-light text-base pb-2 pt-1 focus:outline-none focus:border-navy/60 transition-colors placeholder:text-navy/20" />
+            <div class="flex items-end gap-3">
+              <input type="email" id="email" name="email" required placeholder="jane@example.com"
+                class="flex-1 min-w-0 border-b border-navy/20 bg-transparent text-navy font-serif font-light text-base pb-2 pt-1 focus:outline-none focus:border-navy/60 transition-colors placeholder:text-navy/20" />
+              <button type="button" id="find-rsvp-btn"
+                class="shrink-0 font-sans text-xs tracking-[0.1em] uppercase text-navy/60 border border-navy/30 px-3 py-2 hover:border-navy hover:text-navy transition-colors">
+                Find My RSVP
+              </button>
+            </div>
+            <p id="find-rsvp-status" class="font-serif font-light text-navy/50 text-sm mt-2 min-h-[1em]">Already RSVP'd? Enter your email and click Find My RSVP to load and update it.</p>
           </div>
 
           <!-- Attending wedding -->
           <div>
-            <label class="block font-sans text-[0.6rem] tracking-[0.25em] uppercase text-navy/60 mb-3">
+            <label class="block font-sans text-xs tracking-[0.2em] uppercase text-navy/60 mb-3">
               Attending the wedding? <span class="text-coral">*</span>
             </label>
             <div class="flex flex-wrap gap-x-8 gap-y-3">
@@ -75,16 +75,16 @@ import { events } from '../data/events';
 
           <!-- Events -->
           <div>
-            <label class="block font-sans text-[0.6rem] tracking-[0.25em] uppercase text-navy/60 mb-1">Which events will you attend?</label>
-            <p class="font-serif font-light text-navy/40 text-xs mb-4">Select all that apply</p>
+            <label class="block font-sans text-xs tracking-[0.2em] uppercase text-navy/60 mb-1">Which other events will you join us for?</label>
+            <p class="font-serif font-light text-navy/50 text-sm mb-4">Alongside the wedding itself, we've planned a few extra celebrations across the week — select any you'd like to join.</p>
             <div class="space-y-3">
               {events.filter(e => e.id !== 'wedding').map(event => (
                 <label class="flex items-start gap-3 cursor-pointer group">
                   <input type="checkbox" name="events" value={event.id}
                     class="accent-navy w-4 h-4 mt-0.5 shrink-0" />
-                  <span class="font-serif font-light text-sm text-navy/80 leading-snug">
+                  <span class="font-serif font-light text-base text-navy/80 leading-snug">
                     {event.title}
-                    <span class="text-navy/40 text-xs ml-1">— {event.date}</span>
+                    <span class="text-navy/50 text-sm ml-1">— {event.date}</span>
                   </span>
                 </label>
               ))}
@@ -93,15 +93,15 @@ import { events } from '../data/events';
 
           <!-- Dietary -->
           <div>
-            <label for="dietary" class="block font-sans text-[0.6rem] tracking-[0.25em] uppercase text-navy/60 mb-2">Dietary Requirements</label>
+            <label for="dietary" class="block font-sans text-xs tracking-[0.2em] uppercase text-navy/60 mb-2">Dietary Requirements</label>
             <textarea id="dietary" name="dietary" rows="2" placeholder="Any allergies or dietary needs..."
               class="w-full border-b border-navy/20 bg-transparent text-navy font-serif font-light text-sm pb-2 pt-1 focus:outline-none focus:border-navy/60 transition-colors placeholder:text-navy/20 resize-none"></textarea>
           </div>
 
           <!-- Message -->
           <div>
-            <label for="message" class="block font-sans text-[0.6rem] tracking-[0.25em] uppercase text-navy/60 mb-2">
-              Message <span class="text-navy/30 normal-case tracking-normal font-sans text-[0.6rem]">(optional)</span>
+            <label for="message" class="block font-sans text-xs tracking-[0.2em] uppercase text-navy/60 mb-2">
+              Message <span class="text-navy/40 normal-case tracking-normal font-sans text-xs">(optional)</span>
             </label>
             <textarea id="message" name="message" rows="3" placeholder="Share a message for Ben & Caitlin..."
               class="w-full border-b border-navy/20 bg-transparent text-navy font-serif font-light text-sm pb-2 pt-1 focus:outline-none focus:border-navy/60 transition-colors placeholder:text-navy/20 resize-none"></textarea>
@@ -142,14 +142,145 @@ import { events } from '../data/events';
 </style>
 
 <script>
+  const SHEET_ENDPOINT = import.meta.env.PUBLIC_RSVP_SHEET_URL;
+  const pageLoadedAt = Date.now();
+
   const params = new URLSearchParams(window.location.search);
   const preselect = params.get('event');
   if (preselect) {
     const checkbox = document.querySelector(`input[name="events"][value="${preselect}"]`) as HTMLInputElement;
     if (checkbox) checkbox.checked = true;
   }
-  if (params.get('success') === 'true') {
-    document.getElementById('rsvp-form')?.classList.add('hidden');
-    document.getElementById('success-message')?.classList.remove('hidden');
+
+  const form = document.getElementById('rsvp-form') as HTMLFormElement | null;
+  const successMessage = document.getElementById('success-message');
+  const submitButton = form?.querySelector('button[type="submit"]') as HTMLButtonElement | null;
+  const emailInput = document.getElementById('email') as HTMLInputElement | null;
+  const findButton = document.getElementById('find-rsvp-btn') as HTMLButtonElement | null;
+  const findStatus = document.getElementById('find-rsvp-status');
+
+  interface RsvpLookupResult {
+    found: boolean;
+    error?: boolean;
+    name?: string;
+    attending?: string;
+    events?: string[];
+    dietary?: string;
+    message?: string;
   }
+
+  // Apps Script's CORS headers on GET responses aren't reliable enough for a
+  // plain fetch() from another origin, so this uses JSONP instead — loading
+  // the response as a <script> tag sidesteps CORS entirely.
+  function lookupRsvpByEmail(email: string): Promise<RsvpLookupResult> {
+    return new Promise((resolve) => {
+      if (!SHEET_ENDPOINT) {
+        resolve({ found: false, error: true });
+        return;
+      }
+
+      const callbackName = `rsvpLookup_${Date.now()}_${Math.floor(Math.random() * 1e6)}`;
+      const script = document.createElement('script');
+      let settled = false;
+
+      const finish = (result: RsvpLookupResult) => {
+        if (settled) return;
+        settled = true;
+        clearTimeout(timeoutId);
+        delete (window as any)[callbackName];
+        script.remove();
+        resolve(result);
+      };
+
+      const timeoutId = setTimeout(() => finish({ found: false, error: true }), 6000);
+
+      (window as any)[callbackName] = (data: RsvpLookupResult) => finish(data);
+      script.onerror = () => finish({ found: false, error: true });
+
+      script.src = `${SHEET_ENDPOINT}?email=${encodeURIComponent(email)}&callback=${callbackName}`;
+      document.body.appendChild(script);
+    });
+  }
+
+  findButton?.addEventListener('click', async () => {
+    const email = emailInput?.value.trim();
+    if (!email) {
+      if (findStatus) findStatus.textContent = 'Enter your email above first.';
+      return;
+    }
+
+    if (findStatus) findStatus.textContent = 'Looking up your RSVP…';
+    findButton.disabled = true;
+
+    const result = await lookupRsvpByEmail(email);
+    findButton.disabled = false;
+
+    if (result.error) {
+      if (findStatus) findStatus.textContent = "Couldn't look that up right now — feel free to just fill out the form below.";
+      return;
+    }
+
+    if (!result.found) {
+      if (findStatus) findStatus.textContent = 'No existing RSVP found for that email — fill out the form below.';
+      return;
+    }
+
+    if (form) {
+      const nameInput = form.querySelector('#name') as HTMLInputElement | null;
+      if (nameInput) nameInput.value = result.name || '';
+
+      const attendingRadio = form.querySelector(`input[name="attending_wedding"][value="${result.attending}"]`) as HTMLInputElement | null;
+      if (attendingRadio) attendingRadio.checked = true;
+
+      form.querySelectorAll<HTMLInputElement>('input[name="events"]').forEach((checkbox) => {
+        checkbox.checked = (result.events || []).includes(checkbox.value);
+      });
+
+      const dietaryInput = form.querySelector('#dietary') as HTMLTextAreaElement | null;
+      if (dietaryInput) dietaryInput.value = result.dietary || '';
+
+      const messageInput = form.querySelector('#message') as HTMLTextAreaElement | null;
+      if (messageInput) messageInput.value = result.message || '';
+    }
+
+    if (findStatus) findStatus.textContent = 'Found your RSVP — update anything below and resubmit.';
+  });
+
+  form?.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    if (!form.reportValidity()) return;
+
+    if (!SHEET_ENDPOINT) {
+      console.error('PUBLIC_RSVP_SHEET_URL is not set — see scripts/rsvp-google-sheet.gs for setup.');
+      alert('Sorry, RSVPs cannot be submitted right now. Please email us directly instead.');
+      return;
+    }
+
+    if (submitButton) {
+      submitButton.disabled = true;
+      submitButton.textContent = 'Sending…';
+    }
+
+    const body = new URLSearchParams();
+    for (const [key, value] of new FormData(form).entries()) {
+      body.append(key, value.toString());
+    }
+    body.append('loaded_at', String(pageLoadedAt));
+
+    try {
+      // Apps Script doesn't send CORS headers, so the response is opaque —
+      // no-cors just confirms the request went out; the sheet still gets
+      // the row appended server-side.
+      await fetch(SHEET_ENDPOINT, { method: 'POST', mode: 'no-cors', body });
+      form.classList.add('hidden');
+      successMessage?.classList.remove('hidden');
+    } catch (err) {
+      console.error('RSVP submission failed', err);
+      if (submitButton) {
+        submitButton.disabled = false;
+        submitButton.textContent = 'Send RSVP';
+      }
+      alert('Something went wrong sending your RSVP. Please try again, or email us directly.');
+    }
+  });
 </script>
